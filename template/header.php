@@ -24,22 +24,12 @@
 
       </head>
       <body>
-      <h1> <?       session_start ();
-        print_r($_SESSION) ?> </h1>
-      <?  
-
+      <?       
+      session_start ();
       if (isset($_SESSION['errors'])){
+        echo $_SESSION['errors'];
         ?>
       
-      <script type="text/javascript">          
-      swal({
-            title: "Error!",
-            text: "Here's my error message!",
-            type: "error",
-            confirmButtonText: "Cool"
-      });
-        </script>
-
         <!-- @TODO: Put error text from $_SESSION['errors'] on the alert above and add other types of alerts from this plugin -->
 
         <? 
@@ -53,7 +43,7 @@
               <a href="#"><img src="img/logo.png" class="h_logo" alt="" title=""></a>
               <nav>
                 <ul class="main_nav">
-                  <li class="current"><a href="./">Home</a></li>
+                  <li class="current"><a href="./"> Home </a></li>
                   <li><a href="#services">About us</a></li>
                    <!--@TODO: Check when user is not on homepage to substitute link for a button -->
                   <li><a href="#join">Join us</a></li>

@@ -14,7 +14,7 @@
 			</div>
 			<ul class="desc">
 				<li>
-					<h3>Create and share events</h3>
+					<h3> Create and share events</h3>
 					<p>Our website will provide you with a fast and organized way to create, share and browse events.</p>
 				</li>
 				<li>
@@ -71,14 +71,14 @@
 			</div>
 
 			<!-- Username & Password Login form -->
-			<div class="user_login">
-				<form>
+			<div class="user_login" name="login">
+				<form action="./php/action_login.php" method="post" enctype="multipart/form-data" name="login_form">
 					<label>Email / Username</label>
-					<input type="text" />
+					<input type="text" name="username" />
 					<br />
 
 					<label>Password</label>
-					<input type="password" />
+					<input type="password" name="password"/>
 					<br />
 
 					<div class="checkbox">
@@ -88,7 +88,8 @@
 
 					<div class="action_btns">
 						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+						<!-- <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div> -->
+						<div class="one_half last"><button class="btn btn_red" type="submit">Login</button></div>
 					</div>
 				</form>
 
@@ -97,7 +98,7 @@
 
 			<!-- Register Form -->
 			<div class="user_register" name="register">
-				<form action="./php/action_register.php" method="post">
+				<form action="./php/action_register.php" method="post" enctype="multipart/form-data" name="register_form">
 					<label>Full Name</label>
 					<input type="text" name="fullname" />
 					<br />
