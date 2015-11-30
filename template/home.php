@@ -96,28 +96,33 @@
 			</div>
 
 			<!-- Register Form -->
-			<div class="user_register">
-				<form>
+			<div class="user_register" name="register">
+				<form action="./php/action_register.php" method="post">
 					<label>Full Name</label>
-					<input type="text" />
+					<input type="text" name="fullname" />
+					<br />
+
+					<label>Username</label>
+					<input type="text" name="username" />
 					<br />
 
 					<label>Email Address</label>
-					<input type="email" />
+					<input type="email" name="email" />
 					<br />
 
 					<label>Password</label>
-					<input type="password" />
+					<input type="password" name="password" />
 					<br />
 
-					<div class="checkbox">
-						<input id="send_updates" type="checkbox" />
-						<label for="send_updates">Send me occasional email updates</label>
-					</div>
+					<label>Password comfirmation</label>
+					<input type="password" name="cpassword" />
+					<br />
 
 					<div class="action_btns">
 						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+						<div class="one_half last"><button class="btn btn_red" type="submit">Register</button></div>
+
+						<!-- <div class="one_half last"><a href="#"  class="btn btn_red" >Register</a></div> -->
 					</div>
 				</form>
 			</div>
@@ -125,7 +130,7 @@
 	</div>
 
 	<script type="text/javascript">
-	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+	$("#modal_trigger").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 
 	$(function(){
 		// Calling Login Form
