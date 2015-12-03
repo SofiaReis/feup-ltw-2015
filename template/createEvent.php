@@ -1,10 +1,10 @@
 
-	</section><!-- Billboard End -->
+
 
 	<section class="" >
 			<div>
 				<h2> Cria aqui o teu evento! </h2>
-				
+
 			</div>
 			<div>
 			<form action="" method="post">
@@ -15,6 +15,3 @@
 </form>
 				</div>
 	</section><!-- services End -->
-
-
-	

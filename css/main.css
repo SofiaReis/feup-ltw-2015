@@ -2,18 +2,18 @@
 
 	Template Author : pixelhint.com
 	Author Email    : contact@pixelhint.com
-	
-	
+
+
 	*****************************************
-	
-	
+
+
 	- Header
 	- Billboard
 	- Services
 	- Call To Action
 	- Testimonials
 	- Footer
-	
+
 */
 
 
@@ -78,17 +78,27 @@
 
 
 /*  Billboard  */
-.billboard{
+.billboard-body{
 	width: 100%;
 	height: 600px;
 	background: #ffffff url('../img/billboard_bg.jpg') no-repeat fixed;
-	
+
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
 }
 
+.billboard-header{
+	width: 100%;
+	height: 100px;
+	background: #EB7A2F ;
+
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
 
 .caption{
 	width: 100%;
@@ -250,7 +260,7 @@
 }
 
 .call_to_action button{
-	
+
 }
 
 
@@ -384,7 +394,7 @@ a.btn_red {color: #FFF;}
 /* Social Login Form */
 .social_login {}
 .social_login .social_box {display:block; clear:both; padding:10px; margin-bottom: 10px; background: #F4F4F2; overflow: hidden;}
-.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;} 
+.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;}
 .social_login .fb .icon {background:#3B5998;}
 .social_login .google .icon {background:#DD4B39;}
 .social_login .icon_title {display:block; padding:5px 0; float:left; font-weight: bold; font-size: 16px; color:#777;}
@@ -413,4 +423,3 @@ a.btn_red {color: #FFF;}
 .user_register input[type="checkbox"]+label {float:left;}
 
 .user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
-

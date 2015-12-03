@@ -34,7 +34,7 @@
         }
         ?>
 
-        <section class="billboard">
+        <section class="billboard-header">
           <header id="header_geral">
             <div class="wrapper">
               <a href="#"><img src="img/logo.png" class="h_logo" alt="" title=""></a>
@@ -51,3 +51,4 @@
               </nav>
             </div>
           </header>
+				</section>

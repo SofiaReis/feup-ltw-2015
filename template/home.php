@@ -1,8 +1,9 @@
-<section class="caption">
-			<p class="cap_title">Your even manager</p>
-			<p class="cap_desc">Designed for you</p>
-		</section>
-	</section><!-- Billboard End -->
+<section class="billboard-body">
+	<section class="caption">
+		<p class="cap_title">Your even manager</p>
+		<p class="cap_desc">Designed for you</p>
+	</section>
+</section><!-- Billboard End -->
 
 	<section class="services wrapper" id="services">
 			<div class="S_icons">
@@ -129,7 +130,7 @@
 			</div>
 		</section>
 
-		
+
 	</div>
 
 	<script type="text/javascript">
