@@ -1,5 +1,6 @@
 <?php
 
+print_r($POST);
 	include_once 'db_connection.php';
 
 	echo 'create_event';
