@@ -13,30 +13,30 @@
 
       <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-      <script type="text/javascript" src="js/main.js"></script> 
+      <script type="text/javascript" src="js/main.js"></script>
       <script src="js/sweetalert.min.js"></script>
       <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
       <link href="css/reset.css" rel="stylesheet">
       <link href= "css/main.css" rel="stylesheet" >
       <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 
       </head>
       <body>
-      <?       
+      <?
       session_start ();
       if (isset($_SESSION['errors'])){
         echo $_SESSION['errors'];
         ?>
-      
+
         <!-- @TODO: Put error text from $_SESSION['errors'] on the alert above and add other types of alerts from this plugin -->
 
-        <? 
+        <?
         unset($_SESSION['errors']);
-        } 
+        }
         ?>
-      
+
         <section class="billboard">
           <header id="header_geral">
             <div class="wrapper">
@@ -54,5 +54,3 @@
               </nav>
             </div>
           </header>
-
-

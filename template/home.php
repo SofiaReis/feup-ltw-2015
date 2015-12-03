@@ -43,7 +43,7 @@
 			<span class="header_title">Login</span>
 			<span class="modal_close"><i class="fa fa-times"></i></span>
 		</header>
-		
+
 		<section class="popupBody">
 			<!-- Social Login -->
 			<div class="social_login">
@@ -51,7 +51,7 @@
 					<a href="#" class="social_box fb">
 						<span class="icon"><i class="fa fa-facebook"></i></span>
 						<span class="icon_title">Connect with Facebook</span>
-						
+
 					</a>
 
 					<a href="#" class="social_box google">
@@ -166,5 +166,3 @@
 		</div>
 
 	</section><!-- call_to_action End -->
-
-	

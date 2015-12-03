@@ -6,9 +6,9 @@ include_once 'db_connection.php';
 include_once 'db_utilities_users.php';
 
 
-if (isset($_SESSION['user_id'])) 
+if (isset($_SESSION['user_id']))
 {
-	$_SESSION['errors']=" <script type=\"text/javascript\">          
+	$_SESSION['errors']=" <script type=\"text/javascript\">
 	swal({
 		title: \"Error!\",
 		text: \"You are already logged in.\",
@@ -30,7 +30,7 @@ if(isset($_POST['username']))
 	{
 		if ($user==-1)
 		{
-			$_SESSION['errors']=" <script type=\"text/javascript\">          
+			$_SESSION['errors']=" <script type=\"text/javascript\">
 			swal({
 				title: \"Error!\",
 				text: \"Username not found.\",
@@ -48,11 +48,19 @@ if(isset($_POST['username']))
 			$_SESSION['user_id']=$user['idUser'];
 			header('Location: ' . $_SERVER['HTTP_REFERER']);
 			exit;
-			
+
 		}
 		else
 		{
-			$_SESSION['error_messages']= 'Wrong password.';
+			$_SESSION['errors']=" <script type=\"text/javascript\">
+			swal({
+				title: \"Error!\",
+				text: \"Wrong password.\",
+				type: \"error\",
+				confirmButtonText: \"OK\"
+			});
+			</script>";
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
 			exit;
 		}
 	}
@@ -60,7 +68,7 @@ if(isset($_POST['username']))
 }
 else
 {
-	$_SESSION['errors']=" <script type=\"text/javascript\">          
+	$_SESSION['errors']=" <script type=\"text/javascript\">
 	swal({
 		title: \"Error!\",
 		text: \"Username not found.\",
@@ -69,7 +77,7 @@ else
 	});
 	</script>";
 	header('Location: ' . $_SERVER['HTTP_REFERER']);
-	exit;	
+	exit;
 }
 
 
