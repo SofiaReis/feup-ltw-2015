@@ -12,7 +12,7 @@
 			Description: <input type="text" name="description"><br>
 			Type: <input type="text" name="type"><br>
 
-			Tags: <input type="text" name="type"><br>
+			Tags: <input type="text" name="tags"><br>
 
 			<div class="fileUpload btn btn-primary" name="image">
 				<span>Upload</span>
