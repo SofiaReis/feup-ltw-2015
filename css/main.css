@@ -42,7 +42,6 @@
 	height: 100px;
 	/*background: #f4c995;*/
 	background-color: rgba(255, 255, 255, .1);
-	position: fixed;
 	z-index: 9999;
 }
 
@@ -466,6 +465,24 @@ a.btn_red {color: #FFF;}
     display: block;
     font-size: 11px;
 }
+
+.event-form h2 {
+    font-size: 20px;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    margin: -10px -15px 30px -10px;;
+    color: #888;
+}
+.event-form h2>span {
+    display: block;
+    font-size: 11px;
+}
+
+.event-form section{
+  display: block;
+  border-bottom:1px solid #E4E4E4;
+}
 .event-form label {
     display: block;
     margin: 0px;
@@ -478,7 +495,7 @@ a.btn_red {color: #FFF;}
     margin-top: 10px;
     color: #888;
 }
-.event-form input[type="text"], .event-form input[type="email"], .event-form textarea, .event-form select {
+.event-form input[type="text"], .event-form input[type="email"], .event-form textarea, .event-form select,.event-form input[type="date"] {
     border: 1px solid #DADADA;
     color: #888;
     height: 30px;
@@ -524,4 +541,51 @@ a.btn_red {color: #FFF;}
 }
 .event-form .button:hover {
     background: #CF7A7A
+}
+
+.onoffswitch {
+    position: relative; width: 116px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 29px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 16px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "Private";
+    padding-left: 24px;
+    background-color: #F06E6E; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "Public";
+    padding-right: 24px;
+    background-color: #7CE66E; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 23px; margin: 3.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 82px;
+    border: 2px solid #999999; border-radius: 29px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
 }
