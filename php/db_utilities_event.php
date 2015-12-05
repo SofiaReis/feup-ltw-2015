@@ -1,14 +1,6 @@
 <?
 
-try {
-  $db = new PDO('sqlite:./db/dboltw.db');
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  echo 'merda';
-    print "Error!: " . $e->getMessage() . "<br/>";
-    die();
-}
-
+include_once 'db_connection.php';
 
 function getEventTypes(){
   try{
@@ -19,7 +11,7 @@ function getEventTypes(){
     return $result;
   }
   catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">          
+    $_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: ". $stmt->errorInfo() .",
@@ -41,7 +33,7 @@ function getTags(){
     return $result;
   }
   catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">          
+    $_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: ". $stmt->errorInfo() .",
@@ -57,14 +49,14 @@ function getEventLastID(){
   try{
     echo 'merda';
     global $db;
-    
-    $result = $db->lastInsertId("idEvent"); 
-   
+
+    $result = $db->lastInsertId("idEvent");
+
     print_r($result);
     return $result;
   }
   catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">          
+    $_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: ". $stmt->errorInfo() .",

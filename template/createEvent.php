@@ -1,18 +1,19 @@
-<?php include_once 'php/db_utilities_event.php';
+<?php include_once 'php/loadEvent.php';
 ?>
 
 <section class="" >
 
-	
+
 	<div>
 		<h2> Cria aqui o teu evento! </h2>
 
 	</div>
 	<br>
 	<div>
-		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form">
+		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form" class="event-form">
 			Title: <input type="text" name="title"><br>
 			Description: <input type="text" name="description"><br>
+
 			Category:<br>
 			<?php
 				
@@ -29,8 +30,8 @@
 				<input id="file" type="file" class="fileUpload" name="file"/>
 			</div>
 
-			
-			
+
+
 			State:<br>
 			<input type="radio" name="estado" value="private" id="private">Private <br>
 			<input type="radio" name="estado" value="public" id="public">Público<br>

@@ -31,7 +31,28 @@ function getEventInfo($id){
   }
 }
 
-$event=getEventInfo($_GET['id']);
+function getEventTypes(){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM Type");
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    $_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: ". $stmt->errorInfo() .",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+      </script>";
+    return -1;
+  }
+}
 
+$event=getEventInfo($_GET['id']);
+$types = getEventTypes();
 
 ?>
