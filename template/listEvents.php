@@ -1,16 +1,20 @@
-<script src="upload.js"></script>
+	<?php include_once 'php/fetchEvents.php'; ?>
 
-<section class="" >
-  <div>
-    <h2> Ver eventos! </h2>
-    <?php
-    $events = getAllEvents();
-    for($i = 0; i < sizeof($events); $i++) {
-      ?>
-      <h3><?php echo getCreator($events[$i]['idUser']); ?></h3>
-    }
+	<div  class="event-form">
 
-    
+		<?php 
+			for($i=0; $i < count($events); ++$i)
+			{
+				echo $events[$i]['name'];
+			}
+		?>
+	    <h2>Description:</h2>
 
-  </div>
-</section><!-- services End -->
+	  <section>
+	   <img src="http://indiabright.com/wp-content/uploads/2015/10/cute.jpg" alt="event image" >
+
+	   <br /> <br />
+	 </section>
+
+
+	</div>

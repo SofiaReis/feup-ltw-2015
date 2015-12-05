@@ -100,8 +100,12 @@
 			<!-- Register Form -->
 			<div class="user_register" name="register">
 				<form action="./php/action_register.php" method="post" enctype="multipart/form-data" name="register_form">
-					<label>Full Name</label>
-					<input type="text" name="fullname" />
+					<label>First Name</label>
+					<input type="text" name="firstname" />
+					<br />
+
+					<label>Last Name</label>
+					<input type="text" name="lastname" />
 					<br />
 
 					<label>Username</label>

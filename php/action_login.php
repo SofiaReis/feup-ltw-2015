@@ -46,6 +46,9 @@ if(isset($_POST['username']))
 			$_SESSION['success_messages']='Login successful.';
 			$_SESSION['username']=$user['username'];
 			$_SESSION['user_id']=$user['idUser'];
+			$_SESSION['firstname'] = $user['firstname'];
+			$_SESSION['lastname'] = $user['lastname'];
+
 			header('Location: ' . $_SERVER['HTTP_REFERER']);
 			exit;
 

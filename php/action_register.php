@@ -3,13 +3,16 @@
 include_once 'db_connection.php';
 include_once 'db_utilities_users.php';
 
+print_r($_POST);
+
 
 function checkData() {
-	if ((empty($_POST['fullname']) || !(strlen($_POST['fullname']) <=64) || !(strlen($_POST['fullname']) >=2))){
+	
+	if ((empty($_POST['firstname']) || !(strlen($_POST['firstname']) <=64) || !(strlen($_POST['firstname']) >=2))){
 		$_SESSION['errors']=" <script type=\"text/javascript\">          
       swal({
             title: \"Error!\",
-            text: \"The name you entered is invalid\",
+            text: \"The firstname you entered is invalid\",
             type: \"error\",
             confirmButtonText: \"OK\"
       });
@@ -17,6 +20,19 @@ function checkData() {
 		return false;
 
 	}
+	if ((empty($_POST['lastname']) || !(strlen($_POST['lastname']) <=64) || !(strlen($_POST['lastname']) >=2))){
+		$_SESSION['errors']=" <script type=\"text/javascript\">          
+      swal({
+            title: \"Error!\",
+            text: \"The lastname you entered is invalid\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		return false;
+
+	}
+
 	if (!(strlen($_POST['username']) <=64) || !(strlen($_POST['username']) >=2) || !(preg_match('/^[a-z\d]{2,64}$/i', $_POST['username']))){
 		$_SESSION['errors']=" <script type=\"text/javascript\">          
       swal({
@@ -89,6 +105,8 @@ function checkData() {
 	return true;
 }
 
+
+
 	if (checkData()) {
 		$stmt = $db->prepare('SELECT * FROM User WHERE username = ?');
 		$stmt->execute ( array (
@@ -107,6 +125,7 @@ function checkData() {
 			header ( 'Location: ../' );
 			return false;
 		}
+		
 		$stmt = $db->prepare('SELECT * FROM User WHERE email = ?');
 		$stmt->execute ( array (
 				$_POST ['email'] 
@@ -127,17 +146,19 @@ function checkData() {
 
 		$password = $_POST ['password'];
 		$hash = hash('sha256',$password,false);
-		
-		$query = $db->prepare ( 'INSERT INTO user (name,username,pass_hash,email) VALUES(?,?,?,?)' );
-		$query->execute ( array (
-				htmlentities ( $_POST ['fullname'], ENT_QUOTES ),
-				htmlentities ( $_POST ['username'], ENT_QUOTES ),
+		$query = $db->prepare('INSERT INTO user (username,pass_hash,email,firstname,lastname) VALUES (?,?,?,?,?)');
+		$query->execute (array(
+				htmlentities ($_POST ['username'], ENT_QUOTES ),
 				$hash,
-				htmlentities ( $_POST ['email'], ENT_QUOTES ) 
-		) );
+				htmlentities ($_POST['email'], ENT_QUOTES ),
+				htmlentities ($_POST['firstname'], ENT_QUOTES ),
+				htmlentities ($_POST['lastname'], ENT_QUOTES )));
+		echo 'Cheguei AQUI';
 		$user=getUserInfoByUsername($_POST ['username']);
 		$_SESSION['username']=$_POST ['username'];
     	$_SESSION['user_id']= $user['idUser'];
+    	$_SESSION['firstname'] = $_POST ['firstname'];
+    	$_SESSION['lastname'] = $_POST ['lastname'];
 		header ( 'Location: ../' );
 	}
 

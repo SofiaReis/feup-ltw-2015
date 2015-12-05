@@ -36,21 +36,33 @@
         }
         ?>
 
+
+
         <section class="billboard-header">
           <header id="header_geral">
             <div class="wrapper">
               <a href="#"><img src="img/logo.png" class="h_logo" alt="" title=""></a>
               <nav>
+                <?php 
+
+
+                if(isset($_SESSION['username'])){ ?>
                 <ul class="main_nav">
+                  <li class="current"><a href="./"> Home </a></li>
+                  <li><a href="./?pagina=createEvent">Criar Evento</a></li>
+                  <li><a href="./?pagina=listEvents">Show Evento</a></li>
+                  <li><p><?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?></p></li>
+                  <li><a href="./php/action_logout.php"><span class="icon"><i class="fa fa-sign-out"></i></span></a></li>
+                </ul>
+                <?php }else{?>
+                  <ul class="main_nav">
                   <li class="current"><a href="./"> Home </a></li>
                   <li><a href="#services">About us</a></li>
                    <!--@TODO: Check when user is not on homepage to substitute link for a button -->
                   <li><a href="#join">Join us</a></li>
-                  <li><a href="./?pagina=createEvent">Criar Evento</a></li>
-                  <li>
-
-                  </li>
                 </ul>
+                  <?php }?>
+
               </nav>
             </div>
           </header>
