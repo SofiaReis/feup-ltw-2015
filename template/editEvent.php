@@ -14,12 +14,49 @@
 
   <div id="event_description_edit" >
   <h2>Description:
-    <span><? echo $event["description"]; ?></span>
+    <span id="event_description_edit_span"><? echo $event["description"]; ?></span>
     <button type="button" id="event_description_edit_btn">
       <i class="fa fa-pencil-square-o"></i>
     </button>
   </h2>
 </div>
+
+  <div id="event_local_edit" >
+    <h2>Local:
+      <span id="event_local_edit_span"><? echo $event["local"]; ?></span>
+      <button type="button" id="event_local_edit_btn">
+        <i class="fa fa-pencil-square-o"></i>
+      </button>
+    </h2>
+  </div>
+
+  <div id="event_type_edit" >
+    <h2>Type:
+      <span id="event_type_edit_span"> <? echo $type; ?></span>
+      <button type="button" id="event_type_edit_btn">
+        <i class="fa fa-pencil-square-o"></i>
+      </button>
+    </h2>
+  </div>
+
+<div id="event_type_edit_select" >
+    <label>
+      <span>Category :</span>
+      <div class="styled-select">
+        <select id="event_type-edit"  name="type" >
+          <?php
+
+            for($i=0; $i < count($types); ++$i)
+            {
+              echo '<option value="'.$i.'">'.$types[$i]['name'].'</option>';
+            }
+          ?>
+      </select>
+    </div>
+  </label>
+</div>
+
+
 
   <div id="event_image_edit">
   <section>
@@ -34,7 +71,7 @@
 
   <br/><br/>
   <div class="onoffswitch" >
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+    <input type="checkbox" name="estado" class="onoffswitch-checkbox" id="myonoffswitch">
     <label class="onoffswitch-label" for="myonoffswitch">
       <div class="onoffswitch-inner"></div>
       <div class="onoffswitch-switch"></div>
@@ -42,13 +79,15 @@
   </div>
   <br/><br/>
 
+  <div id="event_date_edit" >
+  <h2>Date:
+    <span id="event_date_edit_span"><? echo $event["date"]; ?></span>
+    <button type="button" id="event_date_edit_btn">
+      <i class="fa fa-pencil-square-o"></i>
+    </button>
+  </h2>
+  </div>
 
-  <label>
-  <span>New date :</span>
-
-    <input id="datepicker" type="date" name="date" >
-
-  </label>
 
   <label>
     <span>&nbsp;</span>

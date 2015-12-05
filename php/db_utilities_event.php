@@ -77,8 +77,7 @@ function updateTitle($newTitle,$id){
     $stmt->bindValue(':name',$newTitle,PDO::PARAM_STR);
     $stmt->bindValue(':id',$id,PDO::PARAM_STR);
     $query = $stmt->execute();
-    $result= $stmt->fetchAll();
-    return $result;
+    return $query;
   }
   catch(PDOException $e){
     if(isset($_SESSION['user_id'])){
@@ -98,8 +97,7 @@ function updateDescription($newDescription,$id){
     $stmt->bindValue(':description',$newDescription,PDO::PARAM_STR);
     $stmt->bindValue(':id',$id,PDO::PARAM_STR);
     $query = $stmt->execute();
-    $result= $stmt->fetchAll();
-    return $result;
+    return $query;
   }
   catch(PDOException $e){
     if(isset($_SESSION['user_id'])){
@@ -111,6 +109,90 @@ function updateDescription($newDescription,$id){
         return -1;
   }
 }
+
+function updateState($newState,$id){
+  try{
+    global $db;
+    $stmt=$db->prepare("UPDATE Event SET public = :public WHERE idEvent = :id");
+    $stmt->bindValue(':public',$newState,PDO::PARAM_STR);
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+    $query = $stmt->execute();
+    return $query;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+			$log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+		}else{
+			$log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+		}
+		error_log($log,3,"../error.log");
+        return -1;
+  }
+}
+
+function updateDate($newDate,$id){
+  try{
+    global $db;
+    $stmt=$db->prepare("UPDATE Event SET date = :date WHERE idEvent = :id");
+    $stmt->bindValue(':date',$newDate,PDO::PARAM_STR);
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+    $query = $stmt->execute();
+    return $query;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+			$log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+		}else{
+			$log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+		}
+		error_log($log,3,"../error.log");
+        return -1;
+  }
+}
+
+function updateLocal($newLocal,$id){
+  try{
+    global $db;
+    $stmt=$db->prepare("UPDATE Event SET local = :local WHERE idEvent = :id");
+    $stmt->bindValue(':local',$newLocal,PDO::PARAM_STR);
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+    $query = $stmt->execute();
+    return $query;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+			$log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+		}else{
+			$log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+		}
+		error_log($log,3,"../error.log");
+        return -1;
+  }
+}
+
+
+
+function updateType($newType,$id){
+  try{
+    global $db;
+    $stmt=$db->prepare("UPDATE Event SET idType = :type WHERE idEvent = :id");
+    $stmt->bindValue(':type',$newType);
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+    $query = $stmt->execute();
+    return $query;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+			$log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+		}else{
+			$log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+		}
+		error_log($log,3,"../error.log");
+        return -1;
+  }
+}
+
+
 
 
 
