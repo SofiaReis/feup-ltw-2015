@@ -15,9 +15,19 @@
 				<span>Title :</span>
 				<input type="text" name="title"><br>
 			</label>
+
+			<label>
+			<span>Date :</span>
+<input type="date" name="date" max="3000-12-31" min="2014-01-01">
+</label>
 			<label>
 				<span>Description :</span>
 				<input type="text" name="description"><br>
+			</label>
+
+			<label>
+				<span>Local :</span>
+				<input type="text" name="local"><br>
 			</label>
 
 			<label>
@@ -28,7 +38,7 @@
 
 							for($i=0; $i < count($types); ++$i)
 							{
-								echo '<option value="'.$types[$i]['name'].'">'.$types[$i]['name'].'</option>';
+								echo '<option value="'.$i.'">'.$types[$i]['name'].'</option>';
 							}
 						?>
 				</select>
