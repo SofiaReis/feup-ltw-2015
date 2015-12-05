@@ -32,16 +32,28 @@ function getAllEvents(){
   }
 }
 
-
 function getCreator($idU){
-  $stmt = $db->prepare('SELECT username FROM User
-    WHERE idUser=:idU');
-  $stmt->bindValue(':idU',$idU);
-  $stmt->execute();
-  $r=$stmt->fetch();
-  return $r['username'];
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT username FROM User WHERE idUser=:idU");
+    $stmt->bindValue(':idU',$idU,PDO::PARAM_STR);
+    $found=$stmt->execute();
+    $columns=$stmt->fetch();
+    return $columns;
+  }catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"./error.log");
+        return -1;
+  }
 }
 
+
 $events=getAllEvents();
+$creator=getCreator(1);
+print_r($creator);
 
 ?>
