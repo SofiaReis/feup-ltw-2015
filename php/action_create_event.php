@@ -61,11 +61,6 @@
 	$size = $_FILES["file"]["size"];
 	
     $check = getimagesize($_FILES["file"]["tmp_name"]);
-    
-    
-
-	
-
 
 	/* INSERT */
 	
@@ -87,10 +82,15 @@
 	$event_Image_dir = $event_dir.basename($_FILES["file"]["name"]);
 	$imageFileType = pathinfo($event_Image_dir,PATHINFO_EXTENSION);
 	
-	if($size <= 0)
-	{
-		echo 'NOT AN IMAGE';
-		return false;
+	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    return false;
+}
+
+	if ($_FILES["file"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    return false;
 	}
 	
 	$stmt = $db->prepare ('INSERT INTO Image (path,idEvent) VALUES (?,?)');

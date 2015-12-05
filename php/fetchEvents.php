@@ -10,7 +10,6 @@ try {
     die();
 }
 
-
 function getAllEvents(){
   try{
     global $db;
@@ -33,6 +32,7 @@ function getAllEvents(){
 }
 
 function getCreator($idU){
+
   try{
     global $db;
     $stmt=$db->prepare("SELECT username FROM User WHERE idUser=:idU");
@@ -41,6 +41,7 @@ function getCreator($idU){
     $columns=$stmt->fetch();
     return $columns;
   }catch(PDOException $e){
+
     if(isset($_SESSION['user_id'])){
       $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
     }else{
@@ -53,7 +54,9 @@ function getCreator($idU){
 
 
 $events=getAllEvents();
-$creator=getCreator(1);
-print_r($creator);
+
+$idU = 16;
+$creator=getCreator($idU);
+print_r($creator['username']);
 
 ?>
