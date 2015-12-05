@@ -11,30 +11,52 @@
 	<br>
 	<div>
 		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form" class="event-form">
-			Title: <input type="text" name="title"><br>
-			Description: <input type="text" name="description"><br>
+			<label>
+				<span>Title :</span>
+				<input type="text" name="title"><br>
+			</label>
+			<label>
+				<span>Description :</span>
+				<input type="text" name="description"><br>
+			</label>
 
-			Category:<br>
-			<?php
-				
-				for($i=0; $i < count($types); ++$i)
-				{
-					echo '<input type="radio" name="'.$types[$i]['name'].'">'.$types[$i]['name'].'<br>';
-				}
-			?>
+			<label>
+				<span>Category :</span>
+				<div class="styled-select">
+					<select id="event_type-edit"  name="type" >
+						<?php
 
-			Tags: <input type="text" name="tags"><br>
+							for($i=0; $i < count($types); ++$i)
+							{
+								echo '<option value="'.$types[$i]['name'].'">'.$types[$i]['name'].'</option>';
+							}
+						?>
+				</select>
+			</div>
+		</label>
+		<label>
+			<span>Tags :</span>
+			<input type="text" name="tags"><br>
+		</label>
 
-			Image:
+		<label>
+			<span>Image :</span>
 			<div class="fileUpload btn btn-primary" name="image">
 				<input id="file" type="file" class="fileUpload" name="file"/>
 			</div>
+		</label>
 
 
+			<br/><br/>
+		  <div class="onoffswitch" >
+		    <input type="checkbox" name="estado" class="onoffswitch-checkbox" id="myonoffswitch">
+		    <label class="onoffswitch-label" for="myonoffswitch">
+		      <div class="onoffswitch-inner"></div>
+		      <div class="onoffswitch-switch"></div>
+		    </label>
+		  </div>
+		  <br/><br/>
 
-			State:<br>
-			<input type="radio" name="estado" value="private" id="private">Private <br>
-			<input type="radio" name="estado" value="public" id="public">Público<br>
 			<input type="submit" value="Submit">
 		</form>
 	</div>
