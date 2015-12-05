@@ -1,6 +1,5 @@
 <?php
-
-	print_r($_POST);	
+	
 	include_once 'db_connection.php';
 	include_once 'db_utilities_event.php';
 
@@ -11,19 +10,7 @@
 		return false;
 	}
 
-	$count = getEventLastID();
-
-	$name = $_FILES["file"]["name"];
-	$type = $_FILES["file"]["type"];
-	$size = $_FILES["file"]["size"];
-
 	$userID = $_SESSION['user_id'];
-
-	//print_r(basename($_FILES["file"]["name"]));
-
-	if(file_exists($images_dir)) echo 'crlh';
-
-	$images_dir = "../images/";
 
 	if (! isset ( $_POST ['title'])) {
 		echo 'Title empty';
@@ -38,17 +25,17 @@
 	} else {
 		$private = 1;
 	}
-	if (! isset ( $_POST ['type'])) {
+	if (!isset ($_POST ['type'])) {
 		echo 'Category empty';
 		return false;
 	}
 
-	if (! isset ( $_POST ['date'])) {
+	if (!isset ($_POST ['date'])) {
 		echo 'Date empty';
 		return false;
 	}
 
-	if (! isset ( $_POST ['local'])) {
+	if (!isset ($_POST ['local'])) {
 		echo 'Local empty';
 		return false;
 	}
@@ -57,21 +44,67 @@
 		echo 'No file Uploaded!';
 		return false;
 	}
+
+	/* IMAGES UPLOAD */
+
+	$uploadOk = 1;
+
+	$images_dir = "../images/";
 	
-	$stmt = $db->prepare ('INSERT INTO Event (name,description,idImage,idType, date, idUser, public, local) VALUES (?,?,?,?,?,?,?,?)');
+	if(!file_exists($images_dir))
+	{
+		mkdir($images_dir);
+	}
+
+	$name = $_FILES["file"]["name"];
+	$type = $_FILES["file"]["type"];
+	$size = $_FILES["file"]["size"];
+	
+    $check = getimagesize($_FILES["file"]["tmp_name"]);
+    
+    
+
+	
+
+
+	/* INSERT */
+	
+	$stmt = $db->prepare ('INSERT INTO Event (name,description,idType, date, idUser, public, local) VALUES (?,?,?,?,?,?,?)');
 	$stmt->execute(array(htmlentities($_POST['title'],ENT_QUOTES),
 			htmlentities($_POST['description'],ENT_QUOTES),
-			'0',
 			$_POST['type'],
 			htmlentities($_POST['date'],ENT_QUOTES),
 			htmlentities($userID,ENT_QUOTES),
 			htmlentities($private,ENT_QUOTES),
 			htmlentities($_POST['local'],ENT_QUOTES)));
 
+	$lastID = getEventLastID();
+	$event_dir= $images_dir.$lastID.'/';
+	if(!file_exists($event_dir))
+	{
+		mkdir($event_dir);
+	}
+	$event_Image_dir = $event_dir.basename($_FILES["file"]["name"]);
+	$imageFileType = pathinfo($event_Image_dir,PATHINFO_EXTENSION);
+	
+	if($size <= 0)
+	{
+		echo 'NOT AN IMAGE';
+		return false;
+	}
+	
+	$stmt = $db->prepare ('INSERT INTO Image (path,idEvent) VALUES (?,?)');
+	$stmt->execute(array(
+			htmlentities($event_Image_dir,ENT_QUOTES),
+			$lastID));
+
 	
 
-
-
+	if (move_uploaded_file($_FILES["file"]["tmp_name"], $event_Image_dir)) {
+        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
 
 
 
