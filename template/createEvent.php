@@ -3,6 +3,7 @@
 
 <section class="" >
 
+	<script type="text/javascript" src="./js/editEventBtn.js"></script>
 
 	<div>
 		<h2> Cria aqui o teu evento! </h2>
@@ -18,8 +19,8 @@
 
 			<label>
 			<span>Date :</span>
-<input type="date" name="date" max="3000-12-31" min="2014-01-01">
-</label>
+				<input type="date" id="datepicker" name="date" max="3000-12-31" min="2014-01-01">
+			</label>
 			<label>
 				<span>Description :</span>
 				<input type="text" name="description"><br>
