@@ -3,7 +3,7 @@
 
 <section class="" >
 
-	<script type="text/javascript" src="./js/editEventBtn.js"></script>
+	<script type="text/javascript" src="./js/createEvent.js"></script>
 
 	<div>
 		<h2> Cria aqui o teu evento! </h2>
