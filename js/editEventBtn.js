@@ -12,6 +12,7 @@ $('document').ready(function() {
       var title=$("#event_name_edit_dynamic").val();
       console.log(title);
       $("#event_title_dynamic").before('<input type="hidden" name="name" value="' + title +'">');
+      $("#event_title_dynamic").before('<div id="event_title_edit"><h1> <label id="event_title_edit_h1">' + title +'</label><button type="button" id="event_title_edit_btn"><i class="fa fa-pencil-square-o"></i></button></h1></div>');
       $("#event_title_dynamic").remove();
       console.log(title);
     });
