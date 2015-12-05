@@ -1,4 +1,32 @@
-<? include_once 'php/loadEvent.php'; ?>
+<? include_once 'php/loadEvent.php';
+
+if (!(isset($_GET['id'])))
+{
+  $_SESSION['errors']=" <script type=\"text/javascript\">
+    swal({
+          title: \"Error!\",
+          text: \"Invalid url.\",
+          type: \"error\",
+          confirmButtonText: \"OK\"
+    });
+      </script>";
+      header('Location: ./');
+}
+if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username']) )
+{
+  $_SESSION['errors']=" <script type=\"text/javascript\">
+    swal({
+          title: \"Error!\",
+          text: \"You have no permission to access this page.\",
+          type: \"error\",
+          confirmButtonText: \"OK\"
+    });
+      </script>";
+      header('Location: ./');
+}
+
+
+?>
 
 <script type="text/javascript" src="./js/editEventBtn.js"></script>
 
