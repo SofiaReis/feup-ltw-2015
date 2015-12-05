@@ -1,26 +1,27 @@
 
 
-$(document).ready(function() {
+$('document').ready(function() {
 
   $( "#datepicker" ).datepicker();
 
-  $("#event-title-edit-btn").click(function() {
+  $("#event_title_edit_btn").click(function() {
     console.log("ugh");
-    $("#event-title-edit").before('<section id="event-title-dynamic"><label><span>New title :</span><input id="event_name-edit-dynamic" type="text" name="name" value="'+ $("#event-title-edit-h1").text() +'"/><button type="button" id="event-name-done-btn-dynamic"><i class="fa fa-check"></i></button></label></section>');
-    $("#event-title-edit").remove();
-    $("#event-name-done-btn-dynamic").click(function() {
-      var title=$("#event_name-edit-dynamic").text();
-      $("#event-title-dynamic").before('<input type="hidden" name="name" value="' + title +'">');
-      $("#event-title-dynamic").remove();
+    $("#event_title_edit").before('<section id="event_title_dynamic"> <label><span>New title :</span><input id="event_name_edit_dynamic" type="text" name="name_dym" value="'+$("#event_title_edit_h1").text()+'"/><button type="button" id="event_name_done_btn_dynamic"><i class="fa fa-check"></i></button></label></section>');
+    $("#event_title_edit").remove();
+    $("#event_name_done_btn_dynamic").click(function() {
+      var title=$("#event_name_edit_dynamic").val();
+      console.log(title);
+      $("#event_title_dynamic").before('<input type="hidden" name="name" value="' + title +'">');
+      $("#event_title_dynamic").remove();
       console.log(title);
     });
   });
 
-  $("#event-description-edit-btn").click(function() {
+  $("#event_description_edit_btn").click(function() {
     console.log("ugh");
-    $("#event-description-edit").before('<section id="event-description-dynamic"><label><span>New description :</span><input id="event_description-edit" type="text" name="description" value='+ $("#event-description-edit").text() +'/><button type="button" id="event-description-done-btn-dynamic"><i class="fa fa-check"></i></button></label></section>');
-    $("#event-description-edit").remove();
-    $("#event-description-done-btn-dynamic").click(function() {
+    $("#event_description_edit").before('<section id="event_description_dynamic"><label><span>New description :</span><input id="event_description_edit" type="text" name="description" value='+ $("#event_description_edit").text() +'/><button type="button" id="event_description_done_btn_dynamic"><i class="fa fa-check"></i></button></label></section>');
+    $("#event_description_edit").remove();
+    $("#event_description_done_btn_dynamic").click(function() {
       console.log("ugh");
 
     });
@@ -37,7 +38,7 @@ $(document).ready(function() {
         	return false;
         }
         var pntr = 'button' + questionId;
-        $("#addQuestion").before("<div class='col-md-12' name='Q"+questionId+"'><input required type='text' class='question' placeholder='Question' name= 'Q" + questionId + "' id= 'question" + questionId + "'/><button class='removeQuestion' value='X' name='rmvQ" + questionId + "'><i class='fa fa-times' style='color: #00669B;'></i> </button> <button class='addAnswer' id ='button" + questionId + "' name='addAQ" + questionId + "' value='+' ><i class='fa fa-plus' style='color: #00669B;'></i> Add Answer </button></div>");
+        $("#addQuestion").before("<div class='col_md_12' name='Q"+questionId+"'><input required type='text' class='question' placeholder='Question' name= 'Q" + questionId + "' id= 'question" + questionId + "'/><button class='removeQuestion' value='X' name='rmvQ" + questionId + "'><i class='fa fa_times' style='color: #00669B;'></i> </button> <button class='addAnswer' id ='button" + questionId + "' name='addAQ" + questionId + "' value='+' ><i class='fa fa_plus' style='color: #00669B;'></i> Add Answer </button></div>");
         questions[questionId] = 0;
         questionId++;
         $(".addAnswer").off('click').click(function(event) {
@@ -49,7 +50,7 @@ $(document).ready(function() {
             	return false;
             }
             questions[questionN] ++;
-            $(event.target).before("<div class='col-md-12' name='Q"+questionN+"A"+answerN+"'><input type='text' class='answer' placeholder='Answer' required name='Q" + questionN + "A" + answerN + "'/><button class='removeAnswer' value='X' name='rmvQ" + questionN + "A" + answerN + "' > <i class='fa fa-times' style='color: #00669B;'></i> </button>");
+            $(event.target).before("<div class='col_md_12' name='Q"+questionN+"A"+answerN+"'><input type='text' class='answer' placeholder='Answer' required name='Q" + questionN + "A" + answerN + "'/><button class='removeAnswer' value='X' name='rmvQ" + questionN + "A" + answerN + "' > <i class='fa fa_times' style='color: #00669B;'></i> </button>");
             $(".removeAnswer").off('click').click(function(event) {
 
                 var nm = $(event.target).attr("name");
@@ -60,10 +61,10 @@ $(document).ready(function() {
                     alert('Must have at least 2 answers');
                     return false;
                 }
-                questions[qs]--;
+                questions[qs]__;
                 $("[name *='Q" + qs + "A" + ans + "']").remove();
                 for (var i = (ans + 1); i < size; i++) {
-                    var j = i - 1;
+                    var j = i _ 1;
                     $("[name ='Q" + qs + "A" + i + "']").attr("name", "Q" + qs + "A" + j);
                     $("[name ='rmvQ" + qs + "A" + i + "']").attr("name", "rmvQ" + qs + "A" + j);
                 }
@@ -80,11 +81,11 @@ $(document).ready(function() {
                 return false;
             }
             questions[qs]=0;
-            questionId--;
+            questionId__;
             $("[name *='Q" + qs + "']").remove();
             for (var i = (qs + 1); i < size; i++) {
             	var size2 = $(".removeAnswer[name*='Q" + i + "']").length;
-                var j = i - 1;
+                var j = i _ 1;
                 questions[j]=questions[i];
                 $("[name = 'Q"+i+"']").attr("name","Q" + j);
                 $("[name = 'addAQ"+i+"']").attr("name","addAQ" + j);

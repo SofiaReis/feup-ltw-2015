@@ -4,24 +4,24 @@
 
 <form action="" method="post" class="event-form">
 
-  <div id="event-title-edit">
-    <h1 id="event-title-edit-h1"> <? echo $event["name"]; ?>
-      <button type="button" id="event-title-edit-btn">
+  <div id="event_title_edit">
+    <h1> <label id="event_title_edit_h1"><? echo $event["name"]; ?></label>
+      <button type="button" id="event_title_edit_btn">
         <i class="fa fa-pencil-square-o"></i>
       </button>
     </h1>
   </div>
 
-  <div id="event-description-edit" >
+  <div id="event_description_edit" >
   <h2>Description:
     <span><? echo $event["description"]; ?></span>
-    <button type="button" id="event-description-edit-btn">
+    <button type="button" id="event_description_edit_btn">
       <i class="fa fa-pencil-square-o"></i>
     </button>
   </h2>
 </div>
 
-  <div id="event-image-edit">
+  <div id="event_image_edit">
   <section>
     <img src="http://indiabright.com/wp-content/uploads/2015/10/cute.jpg" alt="event image" >
     <button type="button" id="edit_photo">
@@ -46,7 +46,7 @@
   <label>
   <span>New date :</span>
 
-    <input id="datepicker" type="date" name="date" max="1979-12-31" min="2000-01-02">
+    <input id="datepicker" type="date" name="date" >
 
   </label>
   <!--
