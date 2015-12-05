@@ -1,12 +1,18 @@
 
+
 $(document).ready(function() {
+
+  $( "#datepicker" ).datepicker();
+
   $("#event-title-edit-btn").click(function() {
     console.log("ugh");
-    $("#event-title-edit").before('<section id="event-title-dynamic"><label><span>New title :</span><input id="event_name-edit" type="text" name="name" value='+ $("#event-title-edit").text() +'/><button type="button" id="event-name-done-btn-dynamic"><i class="fa fa-check"></i></button></label></section>');
+    $("#event-title-edit").before('<section id="event-title-dynamic"><label><span>New title :</span><input id="event_name-edit-dynamic" type="text" name="name" value="'+ $("#event-title-edit-h1").text() +'"/><button type="button" id="event-name-done-btn-dynamic"><i class="fa fa-check"></i></button></label></section>');
     $("#event-title-edit").remove();
     $("#event-name-done-btn-dynamic").click(function() {
-      console.log("ugh");
-
+      var title=$("#event_name-edit-dynamic").text();
+      $("#event-title-dynamic").before('<input type="hidden" name="name" value="' + title +'">');
+      $("#event-title-dynamic").remove();
+      console.log(title);
     });
   });
 

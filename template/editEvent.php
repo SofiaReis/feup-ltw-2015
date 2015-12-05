@@ -5,7 +5,7 @@
 <form action="" method="post" class="event-form">
 
   <div id="event-title-edit">
-    <h1> <? echo $event["name"]; ?>
+    <h1 id="event-title-edit-h1"> <? echo $event["name"]; ?>
       <button type="button" id="event-title-edit-btn">
         <i class="fa fa-pencil-square-o"></i>
       </button>
@@ -42,6 +42,13 @@
   </div>
   <br/><br/>
 
+
+  <label>
+  <span>New date :</span>
+
+    <input id="datepicker" type="date" name="date" max="1979-12-31" min="2000-01-02">
+
+  </label>
   <!--
   <h1>Edit event
   <span>Edit the fields you wish to change.</span>

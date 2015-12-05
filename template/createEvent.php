@@ -46,7 +46,6 @@
 			</div>
 		</label>
 
-
 			<br/><br/>
 		  <div class="onoffswitch" >
 		    <input type="checkbox" name="estado" class="onoffswitch-checkbox" id="myonoffswitch">

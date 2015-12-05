@@ -11,6 +11,9 @@
       <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
       <script type="text/javascript" src="js/main.js"></script>
+			<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+			<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+			<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       <script src="js/sweetalert.min.js"></script>
       <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
       <link href="css/reset.css" rel="stylesheet">
