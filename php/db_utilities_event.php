@@ -70,4 +70,28 @@ function getEventLastID(){
 
 $types = getEventTypes();
 
+function updateTitle($newTitle,$id){
+  try{
+    global $db;
+    $stmt=$db->prepare("UPDATE Event SET name = :name WHERE idEvent = :id");
+    $stmt->bindValue(':name',$newTitle,PDO::PARAM_STR);
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    $_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: ". $stmt->errorInfo() .",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+      </script>";
+    return -1;
+  }
+}
+
+
 ?>

@@ -2,8 +2,8 @@
 
 <script type="text/javascript" src="./js/editEventBtn.js"></script>
 
-<form action="" method="post" class="event-form">
-
+<form action="./php/action_edit_event.php" method="post" enctype="multipart/form-data" class="event-form">
+<input type="hidden" name="event_id" value="<? echo $_GET["id"]; ?>">
   <div id="event_title_edit">
     <h1> <label id="event_title_edit_h1"><? echo $event["name"]; ?></label>
       <button type="button" id="event_title_edit_btn">
@@ -49,6 +49,12 @@
     <input id="datepicker" type="date" name="date" >
 
   </label>
+
+  <label>
+    <span>&nbsp;</span>
+    <input type="submit" class="button" value="Save changes" />
+  </label>
+
   <!--
   <h1>Edit event
   <span>Edit the fields you wish to change.</span>
@@ -105,8 +111,5 @@
 </label>
 -->
 
-<label>
-  <span>&nbsp;</span>
-  <input type="button" class="button" value="Save changes" />
-</label>
+
 </form>
