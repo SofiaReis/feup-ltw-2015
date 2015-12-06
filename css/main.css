@@ -1,23 +1,3 @@
-/*
-
-	Template Author : pixelhint.com
-	Author Email    : contact@pixelhint.com
-
-
-	*****************************************
-
-
-	- Header
-	- Billboard
-	- Services
-	- Call To Action
-	- Testimonials
-	- Footer
-
-*/
-
-
-
 
 /*  Fonts  */
 
@@ -41,7 +21,7 @@
 	width: 100%;
 	height: 100px;
 	/*background: #f4c995;*/
-	background-color: rgba(255, 255, 255, .1);
+	background-color: rgba(0, 93, 125, 0.2) !important;
 	z-index: 9999;
 }
 
@@ -62,8 +42,6 @@
 
 #header_geral nav ul li a{
 	text-decoration: none;
-	font-family: 'LatoBold', arial;
-	font-weight: bold;
 	font-size: 16px;
 	color: #fef8f1;
 	letter-spacing: 1px;
@@ -80,7 +58,7 @@
 .billboard-body{
 	width: 100%;
 	height: 600px;
-	background: #ffffff url('../img/billboard_bg.jpg') no-repeat fixed;
+	background: #ffffff url('../img/background_02.jpg') no-repeat fixed;
 
     background-size: cover;
     -webkit-background-size: cover;
@@ -91,7 +69,7 @@
 .billboard-header{
 	width: 100%;
 	height: 100px;
-	background: #EB7A2F ;
+	background: rgba(0, 93, 125, 0.2) !important ;
 
     background-size: cover;
     -webkit-background-size: cover;
@@ -268,8 +246,8 @@
 /*  Footer  */
 footer{
 	width: 100%;
-	padding: 80px 0;
-	background-color: #393939;
+	padding: 30px 0;
+	background-color: rgba(179,194,191,0.9);
 	text-align: center;
 }
 
@@ -280,17 +258,14 @@ footer nav{
 footer nav ul li{
 	list-style: none;
 	display: inline-block;
-	margin: 40px 0 20px 0;
+	margin: 20px 0 20px 0;
 }
 
 footer nav ul li a{
 	text-decoration: none;
-	color: #a5a5a5;
-	font-family: "LatoBold", arial;
-	font-size: 16px;
-	font-weight: bold;
-	margin-left: 20px;
-	letter-spacing: .5px;
+	color: white;
+	font-size: 14px;
+	padding:2px;
 }
 
 
@@ -304,23 +279,20 @@ footer hr.footer_sp{
 }
 
 footer .rights{
-	color: #a5a5a5;
-	font-family: "LatoRegular", arial;
+	color: white;
 	font-size: 13px;
 	letter-spacing: .5px;
 }
 
 footer .rights a{
-	font-family: 'Latobold', arial;
-	font-weight: bold;
-	color: #777777;
+	color: white;
 	text-decoration: none;
 }
 
 
 footer nav ul li a:hover,
 footer .rights a:hover{
-	color: #ffffff;
+	color: rgba(233,236,229,1);
 }
 
 
@@ -384,8 +356,8 @@ a.btn_red {color: #FFF;}
 
 /* Popup Styles*/
 .popupHeader {font-size:16px; text-transform: uppercase;}
-.popupHeader {background:#F4F4F2; position:relative; padding:10px 20px; border-bottom:1px solid #DDD; font-weight:bold;}
-.popupHeader .modal_close {position: absolute; right: 0; top:0; padding:10px 15px; background:#E4E4E2; cursor: pointer; color:#aaa; font-size:16px;}
+.popupHeader {background:#F4F4F2; position:relative; padding:10px 20px;  font-weight:bold;}
+.popupHeader .modal_close {position: absolute; right: 0; top:0; padding:9.5px 15px; background:#E4E4E2; cursor: pointer; color:#aaa; font-size:16px;}
 
 .popupBody {padding:20px;}
 

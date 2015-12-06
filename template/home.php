@@ -3,14 +3,14 @@
 
 <section class="billboard-body">
 	<section class="caption">
-		<p class="cap_title">Your even manager</p>
+		<p class="cap_title">Share Your Events</p>
 		<p class="cap_desc">Designed for you</p>
 	</section>
 </section><!-- Billboard End -->
 
 	<section class="services wrapper" id="services">
 			<div class="S_icons">
-				<img src="img/S1.png" alt="" title=""/>
+				
 				<hr class="sp"/>
 				<img src="img/S2.png" alt="" title=""/>
 				<hr class="sp"/>
@@ -34,7 +34,7 @@
 
 	<section class="call_to_action" id="join">
 		<div class="wrapper">
-			<img src="img/cta_image.png" alt="" title="">
+			<!--<img src="img/cta_image.png" alt="" title="">-->
 			<section class="cta_desc">
 				<h3>Get in our grid</h3>
 				<p>
@@ -58,14 +58,11 @@
 
 					</a>
 
-					<a href="#" class="social_box google">
-						<span class="icon"><i class="fa fa-google-plus"></i></span>
-						<span class="icon_title">Connect with Google</span>
-					</a>
+					
 				</div>
 
 				<div class="centeredText">
-					<span>Or use your Email address</span>
+					<span>Or Regist Yourself</span>
 				</div>
 
 				<div class="action_btns">
