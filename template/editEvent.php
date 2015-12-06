@@ -86,16 +86,19 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
   </label>
 </div>
 
+<div id="event_image_edit">
+  <? foreach($imgPaths as $img){ ?>
 
+    <section>
+      <img src="<? echo $img['path']; ?>" alt="event image" >
 
-  <div id="event_image_edit">
-  <section>
-    <img src="http://indiabright.com/wp-content/uploads/2015/10/cute.jpg" alt="event image" >
-    <button type="button" id="edit_photo">
-      <i class="fa fa-pencil-square-o"></i>
-    </button>
-    <br /> <br />
-  </section>
+      <br />  <br />
+    </section>
+
+  <? } ?>
+  <button type="button" id="edit_photo">
+    <i class="fa fa-pencil-square-o"></i>
+  </button>
 </div>
 
 <br />
