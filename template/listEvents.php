@@ -7,7 +7,6 @@
 				<?php for($i=0; $i < count($events); ++$i) {?>
 
 				<li>
-					<?php echo $image['path'];?>
 					<a href='<? echo "./?pagina=showEvent&id=".$events[$i]['idEvent']; ?>'>
 
 						<figure>
