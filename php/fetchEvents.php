@@ -52,11 +52,30 @@ function getCreator($idU){
   }
 }
 
+function getImg($idI){
+
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT path FROM Image WHERE idImage=:idI");
+    $stmt->bindValue(':idI',$idI,PDO::PARAM_STR);
+    $found=$stmt->execute();
+    $columns=$stmt->fetch();
+    return $columns;
+  }catch(PDOException $e){
+
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"./error.log");
+        return -1;
+  }
+}
+
+
 
 $events=getAllEvents();
 
-$idU = 16;
-$creator=getCreator($idU);
-print_r($creator['username']);
 
 ?>
