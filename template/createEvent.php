@@ -64,17 +64,24 @@ if (!(isset($_SESSION['user_id']))){
 				</select>
 			</div>
 		</label>
+
+		<!--
 		<label>
 			<span>Tags :</span>
 			<input type="text" name="tags" id="tags"><br>
 		</label>
+	-->
 
-		<label>
-			<span>Image :</span>
-			<div class="fileUpload btn btn-primary" name="image">
-				<input id="file" type="file" class="fileUpload" name="file"/>
-			</div>
-		</label>
+	<label>
+		<span>Image 1 :</span>
+		<div class="fileUpload btn btn-primary" name="image">
+			<input id="file" type="file" class="fileUpload" name="file[]"/>
+		</div>
+		<button type="button" id="add_image_input">
+			<i class="fa fa-plus"> Add image</i>
+		</button>
+	</label>
+
 
 			<br/><br/>
 		  <div class="onoffswitch" >

@@ -47,7 +47,6 @@ function getTags(){
 
 function getEventLastID(){
   try{
-    echo 'merda';
     global $db;
 
     $result = $db->lastInsertId("idEvent");

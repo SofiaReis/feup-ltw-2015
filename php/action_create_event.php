@@ -103,21 +103,25 @@
 	}
 
 	/* IMAGES UPLOAD */
-
 	$uploadOk = 1;
 
-	$images_dir = "../images/";
+	$nFiles=sizeof($_FILES["file"]["name"]);
+for($i=0;$i<$nFiles;$i++){
 
-	if(!file_exists($images_dir))
-	{
-		mkdir($images_dir);
+
+		$images_dir = "../images/";
+
+		if(!file_exists($images_dir))
+		{
+			mkdir($images_dir);
+		}
+
+		$name[] = $file["name"];
+		$type[] = $file["type"];
+		$size[] = $file["size"];
+
+		$check[] = getimagesize($file["tmp_name"]);
 	}
-
-	$name = $_FILES["file"]["name"];
-	$type = $_FILES["file"]["type"];
-	$size = $_FILES["file"]["size"];
-
-	$check = getimagesize($_FILES["file"]["tmp_name"]);
 
 	/* INSERT */
 
@@ -136,63 +140,62 @@
 	{
 		mkdir($event_dir);
 	}
-	$event_Image_dir = $event_dir.basename($_FILES["file"]["name"]);
 
-	$path = "./images/".$lastID.'/'.basename($_FILES["file"]["name"]);
-	$imageFileType = pathinfo($event_Image_dir,PATHINFO_EXTENSION);
+	$nFiles=sizeof($_FILES["file"]["name"]);
+	for($i=0;$i<$nFiles;$i=$i+1){
+		if($_FILES["file"]["name"][$i]!==""){
+			echo "iterador: ".$i;
+			$event_Image_dir = $event_dir.basename($_FILES["file"]["name"][$i]);
 
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-		&& $imageFileType != "gif" ) {
-		$_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: \"Sorry, only JPG, JPEG, PNG & GIF files are allowed.\",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-        </script>";
-		header('Location: ' . $_SERVER['HTTP_REFERER']);
-		return false;
-}
-
-	/*if ($_FILES["file"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    return false;
-	}*/
-
-	$stmt = $db->prepare ('INSERT INTO Image (path,idEvent) VALUES (?,?)');
-	$stmt->execute(array(
-			htmlentities($path,ENT_QUOTES),
-			$lastID));
-
-
-
-	if (move_uploaded_file($_FILES["file"]["tmp_name"], $event_Image_dir)) {
+			$path = "./images/".$lastID.'/'.basename($_FILES["file"]["name"][$i]);
+			$imageFileType = pathinfo($event_Image_dir,PATHINFO_EXTENSION);
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+				&& $imageFileType != "gif" ) {
 				$_SESSION['errors']=" <script type=\"text/javascript\">
 		      swal({
-		            title: \"Created!\",
-		            text: \"Your event was successfully created.\",
-		            type: \"success\",
+		            title: \"Error!\",
+		            text: \"Sorry, only JPG, JPEG, PNG & GIF files are allowed.\",
+		            type: \"error\",
 		            confirmButtonText: \"OK\"
 		      });
 		        </script>";
-				header("Location: ../?pagina=showEvent&id=".$lastID);
+				header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+
+
 				return false;
+		}
 
-    } else {
-			$_SESSION['errors']=" <script type=\"text/javascript\">
-				swal({
-							title: \"Error!\",
-							text: \"Sorry, There was an error uploading the event image.\",
-							type: \"error\",
-							confirmButtonText: \"OK\"
-				});
-					</script>";
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
-			return false;
-    }
+			/*if ($_FILES["file"]["size"] > 500000) {
+		    echo "Sorry, your file is too large.";
+		    return false;
+			}*/
+
+			$stmt = $db->prepare ('INSERT INTO Image (path,idEvent) VALUES (?,?)');
+			$stmt->execute(array(
+					htmlentities($path,ENT_QUOTES),
+					$lastID));
 
 
+
+			if (!(move_uploaded_file($_FILES["file"]["tmp_name"][$i], $event_Image_dir))) {
+				$_SESSION['errors']=" <script type=\"text/javascript\">
+					swal({
+								title: \"Error!\",
+								text: \"Sorry, There was an error uploading the event image.\",
+								type: \"error\",
+								confirmButtonText: \"OK\"
+					});
+						</script>";
+				header('Location: ' . $_SERVER['HTTP_REFERER']);
+				return false;
+			}
+
+
+		}else{
+			header("Location: ../?pagina=showEvent&id=".$lastID);
+		}
+	}
 
   header("Location: ../?pagina=showEvent&id=".$lastID);
 
