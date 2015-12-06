@@ -217,6 +217,45 @@ WHERE public=1 AND ( name LIKE ".$pattern." OR local LIKE ".$pattern.") " );
   else return -1;
 }
 
+function removeAttendancie($iduser,$idEvent){
+  try{
+    global $db;
+    $stmt=$db->prepare("DELETE FROM EventGo WHERE idEvent =  :idEvent AND idUser = :idUser");
+    $stmt->bindValue(':idEvent',$idEvent);
+    $stmt->bindValue(':idUser',$iduser);
+    $sucess=$stmt->execute();
+    return $sucess;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+function addAttendancie($iduser,$idEvent){
+  try{
+    global $db;
+    $stmt=$db->prepare("INSERT INTO EventGo(idEvent,idUser) VALUES (:idEvent, :idUser)");
+    $stmt->bindValue(':idEvent',$idEvent);
+    $stmt->bindValue(':idUser',$iduser);
+    $sucess=$stmt->execute();
+    return $sucess;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
 
 
 

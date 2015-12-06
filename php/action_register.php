@@ -7,9 +7,9 @@ print_r($_POST);
 
 
 function checkData() {
-	
+
 	if ((empty($_POST['firstname']) || !(strlen($_POST['firstname']) <=64) || !(strlen($_POST['firstname']) >=2))){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"The firstname you entered is invalid\",
@@ -21,7 +21,7 @@ function checkData() {
 
 	}
 	if ((empty($_POST['lastname']) || !(strlen($_POST['lastname']) <=64) || !(strlen($_POST['lastname']) >=2))){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"The lastname you entered is invalid\",
@@ -34,7 +34,7 @@ function checkData() {
 	}
 
 	if (!(strlen($_POST['username']) <=64) || !(strlen($_POST['username']) >=2) || !(preg_match('/^[a-z\d]{2,64}$/i', $_POST['username']))){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"The username you entered is invalid\",
@@ -45,7 +45,7 @@ function checkData() {
 		return false;
 	}
 	if (empty($_POST['email']) || !(strlen($_POST['email']) <=64) || !(strlen($_POST['email']) >=2)){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"Please input a valid e-mail.\",
@@ -57,7 +57,7 @@ function checkData() {
 	}
 
 	if (empty($_POST['password'])){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"Password not defined.\",
@@ -69,7 +69,7 @@ function checkData() {
 
 	}
 	if (empty($_POST['cpassword'])){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"Please confirm your password.\",
@@ -80,7 +80,7 @@ function checkData() {
 		return false;
 	}
 	if($_POST['cpassword']!==$_POST['password']){
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"Passwords do not match.\",
@@ -92,7 +92,7 @@ function checkData() {
 	}
 
 	if (! preg_match ( "/(?=^.{8,}$)((?=.*[0-9])|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $_POST ['password'] )) {
-		$_SESSION['errors']=" <script type=\"text/javascript\">          
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"Invalid password.\",
@@ -110,11 +110,11 @@ function checkData() {
 	if (checkData()) {
 		$stmt = $db->prepare('SELECT * FROM User WHERE username = ?');
 		$stmt->execute ( array (
-				$_POST ['username'] 
+				$_POST ['username']
 		) );
 		$result_row = $stmt->fetchObject ();
 		if ($result_row) {
-			$_SESSION['errors']=" <script type=\"text/javascript\">          
+			$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"Username already taken, sorry.\",
@@ -125,14 +125,14 @@ function checkData() {
 			header ( 'Location: ../' );
 			return false;
 		}
-		
+
 		$stmt = $db->prepare('SELECT * FROM User WHERE email = ?');
 		$stmt->execute ( array (
-				$_POST ['email'] 
+				$_POST ['email']
 		) );
 		$result_row = $stmt->fetchObject ();
 		if ($result_row) {
-			$_SESSION['errors']=" <script type=\"text/javascript\">          
+			$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"This email is already linked to an account, sorry.\",
@@ -153,7 +153,6 @@ function checkData() {
 				htmlentities ($_POST['email'], ENT_QUOTES ),
 				htmlentities ($_POST['firstname'], ENT_QUOTES ),
 				htmlentities ($_POST['lastname'], ENT_QUOTES )));
-		echo 'Cheguei AQUI';
 		$user=getUserInfoByUsername($_POST ['username']);
 		$_SESSION['username']=$_POST ['username'];
     	$_SESSION['user_id']= $user['idUser'];

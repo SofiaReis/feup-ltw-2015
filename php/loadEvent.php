@@ -167,16 +167,108 @@ function getCommentAuthor($id){
   }
 }
 
+function getEventAttendants($idEvent){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT EventGo.idEvent, EventGo.idUser, User.username, User.firstname, User.lastname,User.email
+FROM EventGo
+LEFT OUTER JOIN User ON EventGo.idUser = User.idUser
+WHERE idEvent=:id");
+    $stmt->bindValue(':id',$idEvent);
+    $found=$stmt->execute();
+    $result=$stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+function getEventInvited($idEvent){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT EventInvite.idEvent, EventInvite.idUser, User.username, User.firstname, User.lastname,User.email
+FROM EventInvite
+LEFT OUTER JOIN User ON EventInvite.idUser = User.idUser
+WHERE idEvent=:id");
+    $stmt->bindValue(':id',$idEvent);
+    $found=$stmt->execute();
+    $result=$stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+
+
 
 $event=getEventInfo($_GET['id']);
 $types = getEventTypes();
 $type= getEventType($_GET['id']);
 $author=getAuthorInfo($_GET['id']);
 $authorUsername=$author['username'];
-
-//print_r($_GET['id']);
-
 $comments = getEventComments($_GET['id']);
+$attendants=getEventAttendants($_GET['id']);
+$invitedUsers=getEventInvited($_GET['id']);
+$hasAccess=true;
+
+if(isset($_SESSION['user_id']))
+{
+  $isAttendant=false;
+  foreach($attendants as $attendant){
+		if($attendant['idUser']==$_SESSION['user_id']){
+			$isAttendant=true;
+		}
+	}
+  if($event['public']==0)
+  {
+    $hasAccess=false;
+    foreach($invitedUsers as $invitedUser){
+      if($invitedUser['idUser']==$_SESSION['user_id']){
+        $hadAccess=true;
+      }
+    }
+  }
+  if(!$hasAccess){
+    $_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"You have no permission to access this page.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+        header('Location: ./');
+  }
+}else {
+  if($event['public']==0)
+  {
+    $_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"You have no permission to access this page.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+        header('Location: ./');
+  }
+  $isAttendant=false;
+}
 
 
 ?>

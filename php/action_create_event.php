@@ -5,19 +5,44 @@
 
 	session_start();
 
+
 	if (! isset ( $_SESSION ['user_id'] )) {
-		echo 'Need to Login.';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"You need to login.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 
 	$userID = $_SESSION['user_id'];
 
 	if (! isset ( $_POST ['title'])) {
-		echo 'Title empty';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Please specify a title.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 	if (! isset ( $_POST ['description'])) {
-		echo 'Description empty';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Please specify a description.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 	if (isset($_POST ['estado'])) {
@@ -26,22 +51,54 @@
 		$public = 0;
 	}
 	if (!isset ($_POST ['type'])) {
-		echo 'Category empty';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Please specify a category.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 
 	if (!isset ($_POST ['date'])) {
-		echo 'Date empty';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Please specify a date.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 
 	if (!isset ($_POST ['local'])) {
-		echo 'Local empty';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Please specify a location.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 
 	if(!isset($_FILES["file"])){
-		echo 'No file Uploaded!';
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Please upload an image for the event.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		return false;
 	}
 
@@ -60,7 +117,7 @@
 	$type = $_FILES["file"]["type"];
 	$size = $_FILES["file"]["size"];
 
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
+	$check = getimagesize($_FILES["file"]["tmp_name"]);
 
 	/* INSERT */
 
@@ -86,8 +143,16 @@
 
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 		&& $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    return false;
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: \"Sorry, only JPG, JPEG, PNG & GIF files are allowed.\",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+        </script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		return false;
 }
 
 	/*if ($_FILES["file"]["size"] > 500000) {
@@ -103,13 +168,32 @@
 
 
 	if (move_uploaded_file($_FILES["file"]["tmp_name"], $event_Image_dir)) {
-        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+				$_SESSION['errors']=" <script type=\"text/javascript\">
+		      swal({
+		            title: \"Created!\",
+		            text: \"Your event was successfully created.\",
+		            type: \"success\",
+		            confirmButtonText: \"OK\"
+		      });
+		        </script>";
+				header("Location: ../?pagina=showEvent&id=".$lastID);
+				return false;
+
     } else {
-        echo "Sorry, there was an error uploading your file.";
+			$_SESSION['errors']=" <script type=\"text/javascript\">
+				swal({
+							title: \"Error!\",
+							text: \"Sorry, There was an error uploading the event image.\",
+							type: \"error\",
+							confirmButtonText: \"OK\"
+				});
+					</script>";
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			return false;
     }
 
 
 
-    header("Location: ../?pagina=showEvent&id=".$lastID);
+  header("Location: ../?pagina=showEvent&id=".$lastID);
 
 	?>
