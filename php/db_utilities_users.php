@@ -26,4 +26,25 @@ function getUserInfoByUsername($username){
 
 }
 
+function getUsernameByPattern($pattern){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT idUser,username,firstname,lastname,email FROM User WHERE username LIKE ".$pattern );
+    $found=$stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+  }catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+  if(!empty($result))
+   return $result;
+  else return -1;
+}
+
 ?>
