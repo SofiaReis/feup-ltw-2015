@@ -52,7 +52,32 @@ function getEventTypes(){
   }
 }
 
+
+function getImage($id)
+{
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM Image WHERE idEvent=:event_id");
+    $stmt->bindValue(':event_id',$id,PDO::PARAM_STR);
+    $found=$stmt->execute();
+    $columns=$stmt->fetch();
+    return $columns;
+  }catch(PDOException $e){
+    $_SESSION['errors']=" <script type=\"text/javascript\">
+      swal({
+            title: \"Error!\",
+            text: ". $stmt->errorInfo() .",
+            type: \"error\",
+            confirmButtonText: \"OK\"
+      });
+      </script>";
+    return -1;
+  }
+
+}
+
 $event=getEventInfo($_GET['id']);
 $types = getEventTypes();
+$image = getImage($_GET['id']);
 
 ?>

@@ -80,6 +80,8 @@
 		mkdir($event_dir);
 	}
 	$event_Image_dir = $event_dir.basename($_FILES["file"]["name"]);
+
+	$path = "./images/".$lastID.'/'.basename($_FILES["file"]["name"]);
 	$imageFileType = pathinfo($event_Image_dir,PATHINFO_EXTENSION);
 	
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -88,14 +90,14 @@
     return false;
 }
 
-	if ($_FILES["file"]["size"] > 500000) {
+	/*if ($_FILES["file"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     return false;
-	}
+	}*/
 	
 	$stmt = $db->prepare ('INSERT INTO Image (path,idEvent) VALUES (?,?)');
 	$stmt->execute(array(
-			htmlentities($event_Image_dir,ENT_QUOTES),
+			htmlentities($path,ENT_QUOTES),
 			$lastID));
 
 	
@@ -107,5 +109,7 @@
     }
 
 
+
+    header("Location: ../?pagina=showEvent&id=".$lastID);
 
 	?>
