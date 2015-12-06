@@ -1,0 +1,37 @@
+SQLSTATE[23000]: Integrity constraint violation: 19 EventGo.idEvent may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 EventInvite.idUser may not be NULL ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
+SQLSTATE[23000]: Integrity constraint violation: 19 columns idEvent, idUser are not unique ___Date=2015-12-06 ___ idUser=21
