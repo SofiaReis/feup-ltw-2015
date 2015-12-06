@@ -7,12 +7,13 @@
 				<?php for($i=0; $i < count($events); ++$i) {?>
 
 				<li>
+					<?php echo $image['path'];?>
 					<a href='<? echo "./?pagina=showEvent&id=".$events[$i]['idEvent']; ?>'>
 
 						<figure>
 							<?
 							$idI = $events[$i]['idImage'];
-							$image=getImg($idI);
+							$image=getImage($events[$i]['idEvent']);
 							$str = $image['path'];
 							$str2 = substr($str, 3);?>
 							<div class="title">
@@ -38,7 +39,7 @@
 									$type=getEventType($idT);
 									echo $type['name'];
 									?></div>
-									<img src=' <? echo $str2 ?>' height="180" width="320">
+									<img src='<?php echo $image['path'];?>' height="180" width="320">
 									<figcaption><p>+</p></figcaption>
 								</figure>
 							</a>
