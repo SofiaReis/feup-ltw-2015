@@ -52,6 +52,7 @@ function getEventTypes(){
   }
 }
 
+<<<<<<< HEAD
 
 function getImage($id)
 {
@@ -79,5 +80,54 @@ function getImage($id)
 $event=getEventInfo($_GET['id']);
 $types = getEventTypes();
 $image = getImage($_GET['id']);
+=======
+function getEventType($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT name FROM Type WHERE idType=:id");
+    $stmt->bindValue(':id',getEventInfo($id)['idType']);
+    $query = $stmt->execute();
+    $result= $stmt->fetch();
+    return $result['name'];
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+			$log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+		}else{
+			$log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+		}
+		error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+function getAuthorInfo($eventId)
+{
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM User WHERE idUser=:id");
+    $stmt->bindValue(':id',getEventInfo($eventId)['idUser']);
+    $query = $stmt->execute();
+    $result= $stmt->fetch();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+
+$event=getEventInfo($_GET['id']);
+$types = getEventTypes();
+$type= getEventType($_GET['id']);
+$author=getAuthorInfo($_GET['id']);
+$authorUsername=$author['username'];
+>>>>>>> d6fcfedc6792c2c6206d6a3ab3c008335394663b
 
 ?>
