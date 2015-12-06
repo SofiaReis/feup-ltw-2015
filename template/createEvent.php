@@ -17,7 +17,7 @@ if (!(isset($_SESSION['user_id']))){
 
 <section class="" >
 
-	<script type="text/javascript" src="./js/createEvent.js"></script>
+	
 
 	<div>
 		<h2> Cria aqui o teu evento! </h2>
