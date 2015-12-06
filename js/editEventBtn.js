@@ -4,6 +4,7 @@ $(document).ready(function() {
 
   $( "#datepicker" ).datepicker();
   $("#event_type_edit_select").hide();
+  $("#onoffstate").hide();
 
 
 });
@@ -70,6 +71,14 @@ $(document).on('click','#event_type_edit_btn', function(){
     $("#event_type_edit_select").hide();
   });
 });
+
+$(document).on('click','#event_dstate_edit_btn', function(){
+  $("#onoffstate").show();
+  $("#state-to-remove").remove();
+  $("#onoffstate").before('<input type="hidden" name="onoff" value="1">');
+
+});
+
 
 $(document).on('click','#addUser', function(){
   var invitation=$("#inv_input").val();

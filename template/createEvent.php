@@ -1,4 +1,18 @@
 <?php include_once 'php/loadEvent.php';
+
+
+if (!(isset($_SESSION['user_id']))){
+	$_SESSION['errors']=" <script type=\"text/javascript\">
+	swal({
+		title: \"Error!\",
+		text: \"You don't have permissions to access this resource. Login.\",
+		type: \"error\",
+		confirmButtonText: \"OK\"
+	});
+	</script>";
+	header('Location: ./');
+	exit;
+}
 ?>
 
 <section class="" >

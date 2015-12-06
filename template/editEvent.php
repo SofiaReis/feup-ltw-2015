@@ -96,16 +96,31 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
   </section>
 </div>
 
+<br />
+<div id="event_state_edit" >
+  <h2 id="state-to-remove">State:
+    <span id="event_state_edit_span"><? echo $state; ?></span>
+    <button type="button" id="event_dstate_edit_btn">
+      <i class="fa fa-pencil-square-o"></i>
+    </button>
+  </h2>
 
-  <br/><br/>
-  <div class="onoffswitch" >
+</div>
+<section>
+  <div class="onoffswitch" id="onoffstate">
+
     <input type="checkbox" name="estado" class="onoffswitch-checkbox" id="myonoffswitch">
     <label class="onoffswitch-label" for="myonoffswitch">
       <div class="onoffswitch-inner"></div>
       <div class="onoffswitch-switch"></div>
     </label>
+
   </div>
-  <br/><br/>
+</section>
+
+
+<br/>
+
 
   <div id="event_date_edit" >
   <h2>Date:

@@ -21,11 +21,13 @@ if (isset($_POST["event_id"])){
   {
     updateType($_POST["type"]+1,$_POST["event_id"]);
   }
-  if (isset($_POST ['estado']))
-  {
-    updateState(1,$_POST["event_id"]);
-  }else {
-    updateState(0,$_POST["event_id"]);
+  if (isset($_POST['onoff'])){
+    if (isset($_POST ['estado']))
+    {
+      updateState(1,$_POST["event_id"]);
+    }else {
+      updateState(0,$_POST["event_id"]);
+    }
   }
   if (isset($_POST["date"]))
   {

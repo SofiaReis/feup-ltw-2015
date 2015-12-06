@@ -224,6 +224,11 @@ $authorUsername=$author['username'];
 $comments = getEventComments($_GET['id']);
 $attendants=getEventAttendants($_GET['id']);
 $invitedUsers=getEventInvited($_GET['id']);
+if ($event['public']==0){
+  $state="Private";
+}else{
+  $state="Public";
+}
 
 
 ?>

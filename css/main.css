@@ -466,6 +466,9 @@ a.btn_red {color: #FFF;}
     font-size: 11px;
 }
 
+.event-form #onoffstate{
+  border-bottom:1px solid #E4E4E4;
+}
 .event-form h2 {
     font-size: 20px;
     padding: 0px 0px 10px 40px;
