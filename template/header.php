@@ -80,7 +80,7 @@
                   <li class="current"><a href="./"> Home </a></li>
                   <li><a href="#services">About us</a></li>
                    <!--@TODO: Check when user is not on homepage to substitute link for a button -->
-                  <li><a href="#join">Join us</a></li>
+                  <li><a href="#modal">Join us</a></li>
                 </ul>
                   <?php }?>
 

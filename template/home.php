@@ -4,27 +4,26 @@
 <section class="billboard-body">
 	<section class="caption">
 		<p class="cap_title">Share Your Events</p>
-		<p class="cap_desc">Designed for you</p>
+		<p class="cap_desc">With Other People</p>
 	</section>
 </section><!-- Billboard End -->
 
 	<section class="services wrapper" id="services">
-			<div class="S_icons">
-				
-				
-			</div>
 			<ul class="desc">
 				<li>
-					<h3> Create and share events</h3>
-					<p>Our website will provide you with a fast and organized way to create, share and browse events.</p>
+					<span><i class="fa fa-calendar-check-o"></i></span>
+					<h3> Create and attend</h3>
+					<p>Our website will provide you with a fast and organized way to create, share, attend and comment events.</p>
 				</li>
 				<li>
-					<h3>Forum</h3>
-					<p>Each event has an associated forum so that everyone can be up-to-date with all the related news.</p>
+					<span><i class="fa fa-user-plus"></i></span>
+					<h3>Invite people</h3>
+					<p>You can invite other people to see and attend to your events.</p>
 				</li>
 				<li>
-					<h3>Privacy</h3>
-					<p>When you only wish to share your event with few people, our website has your back!</p>
+					<span><i class="fa fa-user-secret"></i></span>
+					<h3>Events privacy</h3>
+					<p>You can have public and private events.</p>
 				</li>
 			</ul>
 	</section><!-- services End -->
@@ -33,11 +32,11 @@
 		<div class="wrapper">
 			<!--<img src="img/cta_image.png" alt="" title="">-->
 			<section class="cta_desc">
-				<h3>Get in our grid</h3>
+				<h3>Join Us.</h3>
 				<p>
-				Registering in our website will open you lots of possibilities for events management. Join us!
+				Get in this adventure with us!
 				</p>
-				<a href="#modal" class="cta_btn" id="modal_trigger" >Login or Register!</a>
+				<a href="#modal" class="cta_btn" id="modal_trigger" >Login or Register</a>
 
 				<div id="modal" class="popupContainer" style="display:none;">
 		<header class="popupHeader">
@@ -48,18 +47,10 @@
 		<section class="popupBody">
 			<!-- Social Login -->
 			<div class="social_login">
-				<div class="">
-					<a href="#" class="social_box fb">
-						<span class="icon"><i class="fa fa-facebook"></i></span>
-						<span class="icon_title">Connect with Facebook</span>
-
-					</a>
-
-					
-				</div>
+				
 
 				<div class="centeredText">
-					<span>Or Regist Yourself</span>
+					<span>Please, Join Us!</span>
 				</div>
 
 				<div class="action_btns">
@@ -71,7 +62,7 @@
 			<!-- Username & Password Login form -->
 			<div class="user_login" name="login">
 				<form action="./php/action_login.php" method="post" enctype="multipart/form-data" name="login_form">
-					<label>Email / Username</label>
+					<label>Username</label>
 					<input type="text" name="username" id="inpt_username"/>
 					<br />
 
