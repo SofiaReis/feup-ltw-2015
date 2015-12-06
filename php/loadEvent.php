@@ -21,14 +21,12 @@ function getEventInfo($id){
     $columns=$stmt->fetch();
     return $columns;
   }catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: ". $stmt->errorInfo() .",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-      </script>";
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
     return -1;
   }
 }
@@ -42,14 +40,35 @@ function getEventTypes(){
     return $result;
   }
   catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: ". $stmt->errorInfo() .",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-      </script>";
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+function getImagePaths($idEvent){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT path
+FROM Image
+LEFT OUTER JOIN Event ON Event.idEvent = Image.idEvent
+WHERE Image.idEvent=:idEvent");
+    $stmt->bindValue(':idEvent',$idEvent);
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
     return -1;
   }
 }
@@ -66,14 +85,12 @@ function getImage($id)
     $columns=$stmt->fetch();
     return $columns;
   }catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: ". $stmt->errorInfo() .",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-      </script>";
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
     return -1;
   }
 
@@ -272,6 +289,7 @@ if ($event['public']==0){
 
 $eventsGo = getEventGo($_SESSION['user_id']);
 $userEvents = getUserEvents($_SESSION['user_id']);
+$imgPaths=getImagePaths($_GET['id']);
 
 
 ?>
