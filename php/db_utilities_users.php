@@ -29,7 +29,8 @@ function getUserInfoByUsername($username){
 function getUsernameByPattern($pattern){
   try{
     global $db;
-    $stmt=$db->prepare("SELECT idUser,username,firstname,lastname,email FROM User WHERE username LIKE ".$pattern );
+    $stmt=$db->prepare("SELECT DISTINCT User.idUser,username,firstname,lastname,email FROM User,EventInvite WHERE username LIKE ".$pattern." AND NOT EXISTS( SELECT * FROM
+EventInvite WHERE User.idUser=EventInvite.idUser)" );
     $found=$stmt->execute();
     $result = $stmt->fetchAll();
     return $result;
