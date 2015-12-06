@@ -12,8 +12,7 @@
 		{
 				$event = getEventInfo($eventsGo[$i]['idEvent']);
 				
-				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a><br><p>'.$event['description'].'</p><br> 
-				<form action=""><input type="submit" value="&#xf27e;"></form>';
+				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'<br><span>Date:'.$event['date'].'&nbsp;</span>'.$event['local'];
 		}
 		
 ?>
@@ -34,7 +33,8 @@
 		for($i=0; $i < count($userEvents); ++$i)
 		{
 				$event = getEventInfo($userEvents[$i]['idEvent']);
-				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a><br><p>'.$event['description'].'</p>';
+				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
+				  <a href="./?pagina=editEvent&id='.$event['idEvent'].'"><i class="fa fa-pencil"></i></a><br>';
 		}
 		
 ?>

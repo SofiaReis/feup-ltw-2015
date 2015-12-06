@@ -863,3 +863,20 @@ input[type="submit"] {
 }
 
 
+#userEvents a{
+
+	color: #646363;
+	text-decoration: none;
+}
+
+#userEvents a:hover{
+
+	color: rgba(179,194,191,0.9);
+}
+
+
+
+
+
+
+
