@@ -71,7 +71,7 @@ else {
 		<img src=<?php echo $image['path'];?>>
 		<br>
 
-		<a href=""><span></span></a><a href=""><span></span></a>
+		<div class="fb-share-button" data-href="<?php echo $actual_link; ?>" data-layout="button"></div>
 	</div>
 
 	<button type="button" class="button" id="showAtt">Show attendants</button>

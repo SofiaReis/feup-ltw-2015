@@ -213,6 +213,46 @@ WHERE idEvent=:id");
   }
 }
 
+function getEventGo($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM EventGo WHERE idUser=:id");
+    $stmt->bindValue(':id',$id);
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+function getUserEvents($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM Event WHERE idUser=:id");
+    $stmt->bindValue(':id',$id);
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
 
 
 
@@ -229,6 +269,9 @@ if ($event['public']==0){
 }else{
   $state="Public";
 }
+
+$eventsGo = getEventGo($_SESSION['user_id']);
+$userEvents = getUserEvents($_SESSION['user_id']);
 
 
 ?>

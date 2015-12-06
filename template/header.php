@@ -15,13 +15,31 @@
 			<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       <script src="js/sweetalert.min.js"></script>
       <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+      <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1064403640259012',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
       <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
       <link href="css/reset.css" rel="stylesheet">
       <link href= "css/main.css" rel="stylesheet" >
       <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       </head>
       <body>
       <?
@@ -42,17 +60,16 @@
         <section class="billboard-header">
           <header id="header_geral">
             <div class="wrapper">
-              <a href="#"><img src="img/logo.png" class="h_logo" alt="" title=""></a>
+              <a href="./"><img src="img/logo.png" class="h_logo" alt="" title=""></a>
               <nav>
                 <?php 
 
 
                 if(isset($_SESSION['username'])){ ?>
                 <ul class="main_nav">
-                  <li class="current"><a href="./"> Home </a></li>
                   <li><a href="./?pagina=createEvent">Criar Evento</a></li>
                   <li><a href="./?pagina=listEvents">Show Evento</a></li>
-                  <li><p><?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?></p></li>
+                   <li><a href="./?pagina=userPage"><p><?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?></p></a></li>
                   <li><a href="./php/action_logout.php"><span class="icon"><i class="fa fa-sign-out"></i></span></a></li>
                 </ul>
                 <?php }else{?>

@@ -9,7 +9,7 @@
 			</ul>
 		</nav>
 		
-		<p class="rights">© 2013 BrandName.com - All Rights Reserved</p>
+		<p class="rights">© 2015 - All Rights Reserved</p>
 	</footer><!-- footer End -->
 
 </body>
