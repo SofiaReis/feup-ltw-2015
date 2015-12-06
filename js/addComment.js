@@ -1,12 +1,26 @@
-$("#comment").live( "submit" , function(){
-    // Intercept the form submission
-    var formdata = $(this).serialize(); // Serialize all form data
+$(function() {
+    $(".button").click(function() {
+     	var comment = $("textarea#message").val();
+     	console.log(comment);
 
-    // Post data to your PHP processing script
-    $.post( "#", formdata, function( data ) {
-        // Act upon the data returned, setting it to #success <div>
-        $("#success").html ( data );
+     	if(comment == "")
+     	{
+     		 $("label#message_error").show();
+        	$("textarea#message").focus();
+        	return false;
+     	}
+
+     	var dataString = 'comment='+ comment;
+
+     	$.ajax({
+    		type: "POST",
+    		url: "./php/action_add_comment.php",
+    			data: dataString,
+    			success: function() {
+      $('#sucess').html("<div id='message'></div>");
+      
+    }
+  });
+  return false;
     });
-
-    return false; // Prevent the form from actually submitting
-});
+  });

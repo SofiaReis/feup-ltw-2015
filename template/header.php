@@ -14,6 +14,7 @@
 			<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 			<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       <script src="js/sweetalert.min.js"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
       <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
       <link href="css/reset.css" rel="stylesheet">
       <link href= "css/main.css" rel="stylesheet" >

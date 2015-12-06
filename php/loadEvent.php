@@ -1,5 +1,7 @@
 <?
 
+
+
 try {
 
   $db = new PDO('sqlite:./db/dboltw.db');
@@ -123,12 +125,58 @@ function getAuthorInfo($eventId)
   }
 }
 
+function getEventComments($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM Comment WHERE idEvent=:id ORDER BY date DESC");
+    $stmt->bindValue(':id',$id);
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    //print_r($result);
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
+function getCommentAuthor($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM User WHERE idUser=:id");
+    $stmt->bindValue(':id',$id);
+    $query = $stmt->execute();
+    $result= $stmt->fetch();
+    //print_r($result);
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
 
 $event=getEventInfo($_GET['id']);
 $types = getEventTypes();
 $type= getEventType($_GET['id']);
 $author=getAuthorInfo($_GET['id']);
 $authorUsername=$author['username'];
+
+//print_r($_GET['id']);
+
+$comments = getEventComments($_GET['id']);
 
 
 ?>
