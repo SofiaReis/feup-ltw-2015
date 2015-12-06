@@ -625,10 +625,6 @@ a.btn_red {color: #FFF;}
   	min-height: 100%;
   	min-width: 100%;
   	object-fit: cover;
-
-  	-webkit-transition: all 300ms;
-	-moz-transition: all 300ms;
-	transition: all 300ms;
 }
 
 .photo-grid figure {
@@ -653,7 +649,7 @@ a.btn_red {color: #FFF;}
 	display: table-cell;
 	font-size: 1.5em;
 	position: relative;
-	top: 0px;
+	top: -40px;
 	width: 289px;
 	-webkit-transition: all 300ms ease-out;
 	-moz-transition: all 300ms ease-out;
@@ -661,8 +657,14 @@ a.btn_red {color: #FFF;}
 	vertical-align: middle;
 }
 
+.photo-grid li:hover figcaption p {
+	-moz-transform: translateY(40px);
+	-webkit-transform: translateY(40px);
+	transform: translateY(40px);
+}
+
 .photo-grid figcaption {
-	background: rgba(0,0,0,0.8);
+	background: rgba(193,223,218,0.8);
 	color: white;
 	display: table;
 	height: 100%;
@@ -681,7 +683,8 @@ a.btn_red {color: #FFF;}
 }
 
 figure .title {
-	background-color: black;
+	height: 35px;
+	background-color: rgba(61,58,63,1);;
 	font-size: 20px;
 	padding: 3px;
     color: white;
@@ -694,17 +697,38 @@ figure .title p{
     color: #f1f1f1;
 }
 
+.title #t {
+	position: absolute;
+	left:0;
+	width:240px;
+	height: auto;
+}
+
+.title #t h1,p {
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .date {
+	background-color: #e8ece5;
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%;
+	width: 50px;
 	height: auto;
 	text-align: right;
+	text-align: center;
 }
 
-.date h1{
+.date #day{
+	background-color: #b2c2bf;
 
+}
+
+.date #month {
+	color: #3D3A3F;
 }
 
 .photo-grid a {
@@ -712,10 +736,11 @@ figure .title p{
 }
 
 .info {
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(178,194,191,0.8);
 	position: absolute;
 	bottom: 0;
-	width: 100%;
+	padding: 10px;
+	width: 269px;
 	height: auto;
 }
 
