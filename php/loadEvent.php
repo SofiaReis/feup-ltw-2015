@@ -226,49 +226,6 @@ $attendants=getEventAttendants($_GET['id']);
 $invitedUsers=getEventInvited($_GET['id']);
 $hasAccess=true;
 
-if(isset($_SESSION['user_id']))
-{
-  $isAttendant=false;
-  foreach($attendants as $attendant){
-		if($attendant['idUser']==$_SESSION['user_id']){
-			$isAttendant=true;
-		}
-	}
-  if($event['public']==0)
-  {
-    $hasAccess=false;
-    foreach($invitedUsers as $invitedUser){
-      if($invitedUser['idUser']==$_SESSION['user_id']){
-        $hadAccess=true;
-      }
-    }
-  }
-  if(!$hasAccess){
-    $_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: \"You have no permission to access this page.\",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-        </script>";
-        header('Location: ./');
-  }
-}else {
-  if($event['public']==0)
-  {
-    $_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: \"You have no permission to access this page.\",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-        </script>";
-        header('Location: ./');
-  }
-  $isAttendant=false;
-}
 
 
 ?>
