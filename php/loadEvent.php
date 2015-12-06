@@ -224,8 +224,6 @@ $authorUsername=$author['username'];
 $comments = getEventComments($_GET['id']);
 $attendants=getEventAttendants($_GET['id']);
 $invitedUsers=getEventInvited($_GET['id']);
-$hasAccess=true;
-
 
 
 ?>

@@ -1,9 +1,8 @@
 <? include_once 'php/loadEvent.php';
-
-
+$isAttendant=false;
+$hasAccess=false;
 if(isset($_SESSION['user_id']))
 {
-  $isAttendant=false;
   foreach($attendants as $attendant){
 		if($attendant['idUser']==$_SESSION['user_id']){
 			$isAttendant=true;
@@ -11,13 +10,15 @@ if(isset($_SESSION['user_id']))
 	}
   if($event['public']==0)
   {
-    $hasAccess=false;
-    foreach($invitedUsers as $invitedUser){
-      if($invitedUser['idUser']==$_SESSION['user_id']){
-        $hadAccess=true;
+    foreach($invitedUsers as $invited){
+      if($invited['idUser']==$_SESSION['user_id']){
+        $hasAccess=true;
       }
     }
   }
+	else {
+		$hasAccess=true;
+	}
   if(!$hasAccess){
     $_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
@@ -29,10 +30,10 @@ if(isset($_SESSION['user_id']))
         </script>";
         header('Location: ./');
   }
-}else {
-  if($event['public']==0)
-  {
-    $_SESSION['errors']=" <script type=\"text/javascript\">
+}
+else {
+	if($event['public']==0){
+		$_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: \"You have no permission to access this page.\",
@@ -41,9 +42,9 @@ if(isset($_SESSION['user_id']))
       });
         </script>";
         header('Location: ./');
-  }
-  $isAttendant=false;
+	}
 }
+
 ?>
 
 <script type="text/javascript" src="./js/showEvent.js"></script>
@@ -101,6 +102,7 @@ if(isset($_SESSION['user_id']))
 
 
 <br>
+<? if ($isAttendant){ ?>
 	<div>
 		<form id="comment" action="./php/action_add_comment.php?idEvent=<?php echo $_GET['id'];?>&idUser=<?php echo $_SESSION['user_id'];?>&date=<?php echo date("Y-m-d h:i:sa");?>" method="post" class="STYLE-NAME">
 
@@ -128,6 +130,8 @@ if(isset($_SESSION['user_id']))
 		}
 
 ?>  </div>
+
+<? } ?>
 
 
 
