@@ -71,16 +71,14 @@
             if(isset($_SESSION['username'])){ ?>
             <ul class="main_nav">
               <li><a href="./?pagina=createEvent"><i class="fa fa-plus"></i> Add Event</a></li>
-              <li><a href="./?pagina=listEvents">Show Events</a></li>
+              <li><a href="./?pagina=searchEvents">Search</a></li>
                 <li><a href="./?pagina=userPage"><p><?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?></p></a></li>
                 <li><a href="./php/action_logout.php"><span class="icon"><i class="fa fa-sign-out"></i></span></a></li>
               </ul>
               <?php }else{?>
               <ul class="main_nav">
-                <li class="current"><a href="./"> Home </a></li>
-                <li><a href="#services">About us</a></li>
                 <!--@TODO: Check when user is not on homepage to substitute link for a button -->
-                <li><a href="#modal">Join us</a></li>
+                <li><a href="./?pagina=searchEvents">Search</a></li>
                 <li>
                 <a href="#modal" id="modal_trigger" ><i class="fa fa-sign-in"></i></a>
                 </li>

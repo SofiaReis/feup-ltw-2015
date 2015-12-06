@@ -13,13 +13,13 @@
 		for($i=0; $i < count($eventsGo); ++$i)
 		{
 				$event = getEventInfo($eventsGo[$i]['idEvent']);
-				if(empty($event)){
+				//if(empty($event)){
 					echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'<br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
-				}
-				else{
+				//}
+				//else{
 
-					echo 'No events to attend';
-				}
+				//	echo 'No events to attend';
+				//}
 
 		}
 		
@@ -41,13 +41,13 @@
 		for($i=0; $i < count($userEvents); ++$i)
 		{
 				$event = getEventInfo($userEvents[$i]['idEvent']);
-				if(empty($event)){
+				//if(empty($event)){
 					echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
 				  <a href="./?pagina=editEvent&id='.$event['idEvent'].'"><i class="fa fa-pencil"></i></a><br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
-				else{
+				//else{
 
-					echo '<a href="./?pagina=createEvent">You don\'t have any event yet. Please, create one now.</a>';
-				}
+				//	echo '<a href="./?pagina=createEvent">You don\'t have any event yet. Please, create one now.</a>';
+				//}
 		}
 		
 ?>
