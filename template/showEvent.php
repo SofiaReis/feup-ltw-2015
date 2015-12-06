@@ -88,7 +88,7 @@ else {
 			<? } ?>
 	</form>
 	<? } ?>
-	<div class="attendancies" id="attendancies2" style="display:none;">
+	<div class="attendancies" id="attendancies" style="display:none;">
 			 <ul>
 
 		 			<? foreach ($attendants as $atten){ ?>

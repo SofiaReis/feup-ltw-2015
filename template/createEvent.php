@@ -15,9 +15,14 @@ if (!(isset($_SESSION['user_id']))){
 }
 ?>
 
+<script type="text/javascript" src="./js/createEvent.js"></script>
+<script type="text/javascript" src="./js/new_event_vale.js"></script>
+
+
+
 <section class="" >
 
-	
+
 
 	<div>
 		<h2> Cria aqui o teu evento! </h2>
@@ -28,7 +33,7 @@ if (!(isset($_SESSION['user_id']))){
 		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form" class="event-form">
 			<label>
 				<span>Title :</span>
-				<input type="text" name="title"><br>
+				<input type="text" name="title" id="title"><br>
 			</label>
 
 			<label>
@@ -37,12 +42,12 @@ if (!(isset($_SESSION['user_id']))){
 			</label>
 			<label>
 				<span>Description :</span>
-				<input type="text" name="description"><br>
+				<input type="text" name="description" id="description"><br>
 			</label>
 
 			<label>
 				<span>Local :</span>
-				<input type="text" name="local"><br>
+				<input type="text" name="local" id="local"><br>
 			</label>
 
 			<label>
@@ -61,7 +66,7 @@ if (!(isset($_SESSION['user_id']))){
 		</label>
 		<label>
 			<span>Tags :</span>
-			<input type="text" name="tags"><br>
+			<input type="text" name="tags" id="tags"><br>
 		</label>
 
 		<label>
@@ -80,8 +85,7 @@ if (!(isset($_SESSION['user_id']))){
 		    </label>
 		  </div>
 		  <br/><br/>
-
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" onClick="return validateCreate();">
 		</form>
 	</div>
 </section><!-- services End -->
