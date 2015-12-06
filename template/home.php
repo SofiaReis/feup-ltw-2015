@@ -11,10 +11,7 @@
 	<section class="services wrapper" id="services">
 			<div class="S_icons">
 				
-				<hr class="sp"/>
-				<img src="img/S2.png" alt="" title=""/>
-				<hr class="sp"/>
-				<img src="img/S3.png" alt="" title=""/>
+				
 			</div>
 			<ul class="desc">
 				<li>

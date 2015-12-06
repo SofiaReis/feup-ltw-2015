@@ -2,11 +2,12 @@
 <html>
 
     <head>
+      <link rel="shortcut icon" href="./img/logogoat-fi.ico" type="image/x-icon">
       <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="author" content="">
 
-      <title>Univento</title>
+      <title>Go@</title>
 
       <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
@@ -60,14 +61,16 @@
         <section class="billboard-header">
           <header id="header_geral">
             <div class="wrapper">
-              <a href="./"><img src="" class="h_logo" alt="" title=""></a>
+              <a href="./"><img src="img/logo_goat.png" class="h_logo" alt="" title=""></a>
               <nav>
+
+
                 <?php 
 
 
                 if(isset($_SESSION['username'])){ ?>
                 <ul class="main_nav">
-                  <li><a href="./?pagina=createEvent">Criar Evento</a></li>
+                  <li><a href="./?pagina=createEvent"><i class="fa fa-plus"></i> Add Event</a></li>
                   <li><a href="./?pagina=listEvents">Show Evento</a></li>
                    <li><a href="./?pagina=userPage"><p><?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?></p></a></li>
                   <li><a href="./php/action_logout.php"><span class="icon"><i class="fa fa-sign-out"></i></span></a></li>
