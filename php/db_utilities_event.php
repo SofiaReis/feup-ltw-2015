@@ -193,6 +193,36 @@ function updateType($newType,$id){
 }
 
 
+function getEventByPattern($pattern){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT Event.idEvent, Event.name, Event.local, Event.description, Event.idImage,Event.date,User.username,User.idUser
+FROM Event
+LEFT OUTER JOIN User ON Event.idUser = User.idUser
+LEFT OUTER JOIN Image ON Event.idImage = Image.idImage
+WHERE public=1 AND ( name LIKE ".$pattern." OR local LIKE ".$pattern.") " );
+    $found=$stmt->execute();
+    $result = $stmt->fetchAll();
+  }catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+  if(!empty($result))
+   return $result;
+  else return -1;
+}
+
+
+
+
+
+
+
 
 
 
