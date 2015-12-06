@@ -116,6 +116,26 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
   </h2>
   </div>
 
+  <div id="event_invites_edit" >
+  <h2>Invited:
+    <? foreach($invitedUsers as $invited){ ?>
+    <span id="event_invites_edit_span"><? echo $invited["username"]; ?></span>
+    <!--
+    <button type="button" id="removeUser<? echo $invited["idUser"]; ?>">
+      <i class="fa fa-times"></i>
+    </button>
+  -->
+    <? } ?>
+    <div id="inviteNew">
+      Invite (please input username):
+      <input type="text" id="inv_input"/>
+      <button type="button" id="addUser">
+        <i class="fa fa-check"></i>
+      </button>
+    </div>
+
+  </h2>
+  </div>
 
   <label>
     <span>&nbsp;</span>

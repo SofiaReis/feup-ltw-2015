@@ -257,6 +257,26 @@ function addAttendancie($iduser,$idEvent){
   }
 }
 
+function inviteUser($iduser,$idEvent){
+  try{
+    global $db;
+    $stmt=$db->prepare("INSERT INTO EventInvite(idEvent,idUser) VALUES (:idEvent, :idUser)");
+    $stmt->bindValue(':idEvent',$idEvent);
+    $stmt->bindValue(':idUser',$iduser);
+    $sucess=$stmt->execute();
+    return $sucess;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
+
 
 
 

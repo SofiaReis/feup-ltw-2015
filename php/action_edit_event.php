@@ -1,8 +1,9 @@
 <?
 
-print_r($_POST);
 
 include_once 'db_utilities_event.php';
+include_once 'db_utilities_users.php';
+
 if (isset($_POST["event_id"])){
   if (isset($_POST["name"]))
   {
@@ -30,8 +31,18 @@ if (isset($_POST["event_id"])){
   {
     updateDate($_POST["date"],$_POST["event_id"]);
   }
+  if (isset($_POST["invite"]))
+  {
+    print_r($_POST["invite"]);
+    foreach($_POST["invite"] as $invitedUsername)
+    {
+      $userId=getUserInfoByUsername($invitedUsername)['idUser'];
+      inviteUser($userId,$_POST["event_id"]);
+    }
+  }
 
   header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 }
 
 

@@ -70,3 +70,9 @@ $(document).on('click','#event_type_edit_btn', function(){
     $("#event_type_edit_select").hide();
   });
 });
+
+$(document).on('click','#addUser', function(){
+  var invitation=$("#inv_input").val();
+  $("#inviteNew").before('<span id="event_invites_edit_span">' + invitation +'</span><input type="hidden" name="invite[]" value="' + invitation +'" id="hid_type">');
+  $("#inv_input").val("");
+});

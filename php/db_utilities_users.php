@@ -12,7 +12,7 @@ function getUserInfoByUsername($username){
     $columns=$stmt->fetch();
     return $columns;
   }catch(PDOException $e){
-    $_SESSION['errors']=" <script type=\"text/javascript\">          
+    $_SESSION['errors']=" <script type=\"text/javascript\">
       swal({
             title: \"Error!\",
             text: ". $stmt->errorInfo() .",
@@ -23,9 +23,7 @@ function getUserInfoByUsername($username){
     return -1;
   }
 
-  
+
 }
 
 ?>
-
-

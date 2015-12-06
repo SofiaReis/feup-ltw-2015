@@ -1,7 +1,5 @@
 <?
 
-
-print_r($_POST);
 include_once 'db_connection.php';
 include_once 'db_utilities_users.php';
 
@@ -20,15 +18,15 @@ if (isset($_SESSION['user_id']))
 	exit;
 }
 
-$hashed_pass = hash('sha256',$_POST['password'],false);
 
-if(isset($_POST['username']))
+if(isset($_POST['username']) && isset($_POST['password']))
 {
 	$username=$_POST['username'];
+	$hashed_pass = hash('sha256',$_POST['password'],false);
 	$user=getUserInfoByUsername($username);
-	if(isset($user))
+	if($user!==-1)
 	{
-		if ($user==-1)
+		if (!(isset($user['username'])))
 		{
 			$_SESSION['errors']=" <script type=\"text/javascript\">
 			swal({
@@ -67,14 +65,26 @@ if(isset($_POST['username']))
 			exit;
 		}
 	}
-
+	else
+	{
+		$_SESSION['errors']=" <script type=\"text/javascript\">
+		swal({
+			title: \"Error!\",
+			text: \"There was an internal error in our website, sorry.\",
+			type: \"error\",
+			confirmButtonText: \"OK\"
+		});
+		</script>";
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		exit;
+	}
 }
 else
 {
 	$_SESSION['errors']=" <script type=\"text/javascript\">
 	swal({
 		title: \"Error!\",
-		text: \"Username not found.\",
+		text: \"Input a valid username and password.\",
 		type: \"error\",
 		confirmButtonText: \"OK\"
 	});
