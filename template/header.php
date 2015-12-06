@@ -67,7 +67,6 @@
 
             <?php 
 
-
             if(isset($_SESSION['username'])){ ?>
             <ul class="main_nav">
               <li><a href="./?pagina=createEvent"><i class="fa fa-plus"></i> Add Event</a></li>

@@ -34,7 +34,7 @@ function getAllEvents(){
 function getAllPublicEvents(){
   try{
     global $db;
-    $stmt=$db->prepare("SELECT * FROM Event WHERE public=1");
+    $stmt=$db->prepare("SELECT * FROM Event WHERE public=1 ORDER BY date ASC");
     $query = $stmt->execute();
     $result= $stmt->fetchAll();
     return $result;

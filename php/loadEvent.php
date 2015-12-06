@@ -270,6 +270,25 @@ function getUserEvents($id){
   }
 }
 
+function getInvitedEvent($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("SELECT * FROM EventInvite WHERE idUser=:id");
+    $stmt->bindValue(':id',$id);
+    $query = $stmt->execute();
+    $result= $stmt->fetchAll();
+    return $result;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+      $log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+    }else{
+      $log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+    }
+    error_log($log,3,"../error.log");
+    return -1;
+  }
+}
 
 
 
@@ -290,6 +309,8 @@ if ($event['public']==0){
 $eventsGo = getEventGo($_SESSION['user_id']);
 $userEvents = getUserEvents($_SESSION['user_id']);
 $imgPaths=getImagePaths($_GET['id']);
+
+$invitedEvents = getInvitedEvent($_GET['id']);
 
 
 ?>
