@@ -620,6 +620,10 @@ a.btn_red {color: #FFF;}
   color: #646363;
 }
 
+#results img{
+  width: 130px;
+}
+
 #results li:hover {
   background: #eee;
   cursor: pointer;

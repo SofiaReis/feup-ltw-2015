@@ -1,5 +1,5 @@
 <?php
-	
+
 	include_once 'db_connection.php';
 	include_once 'db_utilities_event.php';
 
@@ -21,9 +21,9 @@
 		return false;
 	}
 	if (isset($_POST ['estado'])) {
-		$private = 0;
+		$public = 1;
 	} else {
-		$private = 1;
+		$public = 0;
 	}
 	if (!isset ($_POST ['type'])) {
 		echo 'Category empty';
@@ -50,7 +50,7 @@
 	$uploadOk = 1;
 
 	$images_dir = "../images/";
-	
+
 	if(!file_exists($images_dir))
 	{
 		mkdir($images_dir);
@@ -59,18 +59,18 @@
 	$name = $_FILES["file"]["name"];
 	$type = $_FILES["file"]["type"];
 	$size = $_FILES["file"]["size"];
-	
+
     $check = getimagesize($_FILES["file"]["tmp_name"]);
 
 	/* INSERT */
-	
+
 	$stmt = $db->prepare ('INSERT INTO Event (name,description,idType, date, idUser, public, local) VALUES (?,?,?,?,?,?,?)');
 	$stmt->execute(array(htmlentities($_POST['title'],ENT_QUOTES),
 			htmlentities($_POST['description'],ENT_QUOTES),
 			$_POST['type'],
 			htmlentities($_POST['date'],ENT_QUOTES),
 			htmlentities($userID,ENT_QUOTES),
-			htmlentities($private,ENT_QUOTES),
+			htmlentities($public,ENT_QUOTES),
 			htmlentities($_POST['local'],ENT_QUOTES)));
 
 	$lastID = getEventLastID();
@@ -83,7 +83,7 @@
 
 	$path = "./images/".$lastID.'/'.basename($_FILES["file"]["name"]);
 	$imageFileType = pathinfo($event_Image_dir,PATHINFO_EXTENSION);
-	
+
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 		&& $imageFileType != "gif" ) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
@@ -94,13 +94,13 @@
     echo "Sorry, your file is too large.";
     return false;
 	}*/
-	
+
 	$stmt = $db->prepare ('INSERT INTO Image (path,idEvent) VALUES (?,?)');
 	$stmt->execute(array(
 			htmlentities($path,ENT_QUOTES),
 			$lastID));
 
-	
+
 
 	if (move_uploaded_file($_FILES["file"]["tmp_name"], $event_Image_dir)) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
