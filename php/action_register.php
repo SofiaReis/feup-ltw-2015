@@ -91,17 +91,7 @@ function checkData() {
 		return false;
 	}
 
-	if (! preg_match ( "/(?=^.{8,}$)((?=.*[0-9])|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $_POST ['password'] )) {
-		$_SESSION['errors']=" <script type=\"text/javascript\">
-      swal({
-            title: \"Error!\",
-            text: \"Invalid password.\",
-            type: \"error\",
-            confirmButtonText: \"OK\"
-      });
-        </script>";
-		return false;
-	}
+
 	return true;
 }
 

@@ -1,3 +1,6 @@
+<script src="./js/login_vale.js"></script>
+<script src="./js/register_vale.js"></script>
+
 <section class="billboard-body">
 	<section class="caption">
 		<p class="cap_title">Your even manager</p>
@@ -75,11 +78,11 @@
 			<div class="user_login" name="login">
 				<form action="./php/action_login.php" method="post" enctype="multipart/form-data" name="login_form">
 					<label>Email / Username</label>
-					<input type="text" name="username" />
+					<input type="text" name="username" id="inpt_username"/>
 					<br />
 
 					<label>Password</label>
-					<input type="password" name="password"/>
+					<input type="password" name="password" id="inpt_pass"/>
 					<br />
 
 					<div class="checkbox">
@@ -90,7 +93,7 @@
 					<div class="action_btns">
 						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
 						<!-- <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div> -->
-						<div class="one_half last"><button class="btn btn_red" type="submit">Login</button></div>
+						<div class="one_half last"><button class="btn btn_red" type="submit" onClick="return validateLogin();">Login</button></div>
 					</div>
 				</form>
 
@@ -101,32 +104,32 @@
 			<div class="user_register" name="register">
 				<form action="./php/action_register.php" method="post" enctype="multipart/form-data" name="register_form">
 					<label>First Name</label>
-					<input type="text" name="firstname" />
+					<input type="text" name="firstname" id="firstname"/>
 					<br />
 
 					<label>Last Name</label>
-					<input type="text" name="lastname" />
+					<input type="text" name="lastname" id="lastname"/>
 					<br />
 
 					<label>Username</label>
-					<input type="text" name="username" />
+					<input type="text" name="username" id="username"/>
 					<br />
 
 					<label>Email Address</label>
-					<input type="email" name="email" />
+					<input type="email" name="email" id="email"/>
 					<br />
 
 					<label>Password</label>
-					<input type="password" name="password" />
+					<input type="password" name="password" id="pass"/>
 					<br />
 
 					<label>Password comfirmation</label>
-					<input type="password" name="cpassword" />
+					<input type="password" name="cpassword" id="cpass"/>
 					<br />
 
 					<div class="action_btns">
 						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><button class="btn btn_red" type="submit">Register</button></div>
+						<div class="one_half last"><button class="btn btn_red" type="submit" onClick="return validateRegister();">Register</button></div>
 
 						<!-- <div class="one_half last"><a href="#"  class="btn btn_red" >Register</a></div> -->
 					</div>
