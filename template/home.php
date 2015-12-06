@@ -4,7 +4,7 @@
 <section class="billboard-body">
 	<section class="caption">
 		<p class="cap_title">Share Your Events</p>
-		<p class="cap_desc">With Other People</p>
+		<p class="cap_desc">with</p><img src="img/logo_goat_light.png" class="h_logo homepage_logo" alt="" title="">
 	</section>
 </section><!-- Billboard End -->
 
