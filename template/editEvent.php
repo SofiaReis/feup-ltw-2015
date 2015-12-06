@@ -29,6 +29,8 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
 ?>
 
 <script type="text/javascript" src="./js/editEventBtn.js"></script>
+<script type="text/javascript" src="./js/searchUsername.js"></script>
+
 
 <form action="./php/action_edit_event.php" method="post" enctype="multipart/form-data" class="event-form">
 <input type="hidden" name="event_id" value="<? echo $_GET["id"]; ?>">
@@ -147,6 +149,10 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
       <button type="button" id="addUser">
         <i class="fa fa-check"></i>
       </button>
+      <ul>
+      <div id="resultsUsername">
+      </div>
+    </ul>
     </div>
 
   </h2>
