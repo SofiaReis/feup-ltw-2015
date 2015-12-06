@@ -157,6 +157,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
     <input type="submit" class="button" value="Save changes" />
   </label>
 
+
   <!--
   <h1>Edit event
   <span>Edit the fields you wish to change.</span>

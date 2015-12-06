@@ -5,8 +5,8 @@
 
 
 
-	
-		$id = 4;
+
+		$id = $_POST['idEvent'];
 		$stmt=$db->prepare('SELECT * FROM Event WHERE idEvent= ?');
 		$stmt->execute(array($id));
 
@@ -30,5 +30,8 @@
 
 		$stmt=$db->prepare('DELETE FROM Event WHERE idEvent=?');
 		$stmt->execute(array($id));
+
+		header('Location: ../');
+
 
 ?>

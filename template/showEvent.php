@@ -15,6 +15,9 @@ if(isset($_SESSION['user_id']))
         $hasAccess=true;
       }
     }
+    if($_SESSION['user_id']==$author['idUser']){
+      $hasAccess=true;
+    }
   }
 	else {
 		$hasAccess=true;
@@ -132,7 +135,15 @@ else {
 ?>  </div>
 
 <? } ?>
-
+<? if ($_SESSION['user_id']==$author['idUser']){  ?>
+  <form action="./php/action_remove_event.php" method="post" enctype="multipart/form-data" class="event-form">
+    <label>
+      <input type="hidden" name="idEvent" value="<? echo $_GET['id']; ?>" >
+      <span>&nbsp;</span>
+      <input type="submit" class="button" value="Delete event" />
+    </label>
+  </form>
+<? } ?>
 
 
 </div>
