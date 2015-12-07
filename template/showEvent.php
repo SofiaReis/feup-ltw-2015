@@ -93,8 +93,9 @@ header('Location: ./');
 		</div>
 
 		<div class="picture_event">
-			<div style="float:left;"><img src='<?php echo $image['path'];?>'></div>
-			<div style="float:right;"><img src='<?php echo $image['path'];?>'></div>
+			<? foreach($imgPaths as $img){ ?>
+			<div style="float:left;"><img src='<?php echo $img['path'];?>'></div>
+			<? } ?>
 		</div>
 
 		<div class="show_attendants">

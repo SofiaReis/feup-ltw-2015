@@ -759,9 +759,15 @@ figure .title p{
 	height: auto;
 }
 
-.title #t h1,p {
+.title #t h1{
 
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.title #t p {
+	overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
