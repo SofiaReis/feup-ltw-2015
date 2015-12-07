@@ -30,6 +30,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
 
 <script type="text/javascript" src="./js/editEventBtn.js"></script>
 <script type="text/javascript" src="./js/searchUsername.js"></script>
+<input type="hidden" id="id" name="idEvent" value="<? echo $_GET['id']; ?>" >
 
 
 <form action="./php/action_edit_event.php" method="post" enctype="multipart/form-data" class="event-form event_edit">
