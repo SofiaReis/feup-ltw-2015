@@ -1,0 +1,47 @@
+BEGIN TRANSACTION;
+CREATE TABLE "User" (
+	`idUser`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`email`	TEXT NOT NULL,
+	`username`	TEXT NOT NULL,
+	`pass_hash`	TEXT NOT NULL,
+	`firstname`	TEXT,
+	`lastname`	TEXT
+);
+CREATE TABLE `Type` (
+	`idType`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	INTEGER NOT NULL
+);
+CREATE TABLE "Image" (
+	`idImage`	INTEGER NOT NULL,
+	`path`	TEXT NOT NULL,
+	`IdEvent`	INTEGER NOT NULL,
+	PRIMARY KEY(idImage)
+);
+CREATE TABLE "EventInvite" (
+	`idEvent`	INTEGER NOT NULL,
+	`idUser`	INTEGER NOT NULL,
+	PRIMARY KEY(idEvent,idUser)
+);
+CREATE TABLE "EventGo" (
+	`idEvent`	INTEGER NOT NULL,
+	`idUser`	INTEGER NOT NULL
+);
+CREATE TABLE "Event" (
+	`idEvent`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL,
+	`description`	TEXT NOT NULL,
+	`idImage`	INTEGER,
+	`idType`	INTEGER,
+	`date`	TEXT NOT NULL,
+	`idUser`	INTEGER NOT NULL,
+	`public`	INTEGER DEFAULT 0,
+	`local`	TEXT
+);
+CREATE TABLE "Comment" (
+	`idUser`	INTEGER NOT NULL,
+	`idEvent`	INTEGER NOT NULL,
+	`description`	TEXT NOT NULL,
+	`date`	TEXT,
+	`idComment`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
+);
+COMMIT;
