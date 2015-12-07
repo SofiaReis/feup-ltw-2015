@@ -273,10 +273,11 @@ function getUserEvents($id){
 function getInvitedEvent($id){
   try{
     global $db;
-    $stmt=$db->prepare("SELECT * FROM EventInvite WHERE idUser=:id");
+    $stmt=$db->prepare("SELECT * FROM EventInvite WHERE idUser = :id;");
     $stmt->bindValue(':id',$id);
     $query = $stmt->execute();
     $result= $stmt->fetchAll();
+   
     return $result;
   }
   catch(PDOException $e){
@@ -310,7 +311,7 @@ $eventsGo = getEventGo($_SESSION['user_id']);
 $userEvents = getUserEvents($_SESSION['user_id']);
 $imgPaths=getImagePaths($_GET['id']);
 
-$invitedEvents = getInvitedEvent($_GET['id']);
+$invitedEvents = getInvitedEvent($_SESSION['user_id']);
 
 
 ?>
