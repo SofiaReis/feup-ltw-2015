@@ -32,7 +32,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
 <script type="text/javascript" src="./js/searchUsername.js"></script>
 
 
-<form action="./php/action_edit_event.php" method="post" enctype="multipart/form-data" class="event-form">
+<form action="./php/action_edit_event.php" method="post" enctype="multipart/form-data" class="event-form event_edit">
 <input type="hidden" name="event_id" value="<? echo $_GET["id"]; ?>">
   <div id="event_title_edit">
     <h1> <label id="event_title_edit_h1"><? echo $event["name"]; ?></label>
@@ -86,20 +86,6 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
   </label>
 </div>
 
-<div id="event_image_edit">
-  <? foreach($imgPaths as $img){ ?>
-
-    <section>
-      <img src="<? echo $img['path']; ?>" alt="event image" >
-
-      <br />  <br />
-    </section>
-
-  <? } ?>
-  <button type="button" id="edit_photo">
-    <i class="fa fa-pencil-square-o"></i>
-  </button>
-</div>
 
 <br />
 <div id="event_state_edit" >
@@ -112,7 +98,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
 
 </div>
 <section>
-  <div class="onoffswitch" id="onoffstate">
+  <div class="onoffswitch edit_onoff" id="onoffstate">
 
     <input type="checkbox" name="estado" class="onoffswitch-checkbox" id="myonoffswitch">
     <label class="onoffswitch-label" for="myonoffswitch">
@@ -135,7 +121,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
     </button>
   </h2>
   </div>
-
+<br/>
   <div id="event_invites_edit" >
   <h2>Invited:
     <? foreach($invitedUsers as $invited){ ?>
@@ -146,6 +132,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
     </button>
   -->
     <? } ?>
+    <br>
     <div id="inviteNew">
       Invite (please input username):
       <input type="text" id="inv_input"/>

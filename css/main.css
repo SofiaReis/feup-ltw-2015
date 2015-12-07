@@ -77,7 +77,7 @@
 
 .billboard-body-userpage{
 	width: auto;
-	height: 500px;
+	height: auto;
 	padding-left: 250px;
 	padding-right: 250px;
 	padding-bottom: 50px;
@@ -1017,6 +1017,60 @@ vertical-align: middle;
 
 .desc i {
 	padding-bottom: 30px;
+}
+
+/* Edit Event */
+
+.event_edit {
+    text-shadow: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#event_name_done_btn_dynamic, #event_description_done_btn_dynamic,
+#event_local_done_btn_dynamic {
+	margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+#event_type_done_btn_dynamic, #event_date_done_btn_dynamic {
+ position: absolute;
+ z-index: 999;
+ margin-top: 10px;
+}
+
+.event_edit h1, .event_edit h2, .event_edit section {
+	border-bottom: 0;
+}
+
+.event_edit button {
+	background-color: transparent;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+}
+
+.event_edit .results-usernames-btn {
+	background: #BAC8C5;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #BAC8C5;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #BAC8C5;
+    cursor: pointer;
+}
+
+.event_edit i {
+	background-color: white;
+	color: black;
+    padding: 5px 10px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
 }
 
 
