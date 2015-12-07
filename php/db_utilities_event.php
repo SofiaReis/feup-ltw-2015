@@ -195,11 +195,12 @@ function updateType($newType,$id){
 function getEventByPattern($pattern){
   try{
     global $db;
-    $stmt=$db->prepare("SELECT Event.idEvent, Event.name, Event.local, Event.description, Image.path,Event.date,User.username,User.idUser
+    $stmt=$db->prepare("SELECT Event.idEvent, Event.name, Event.local, Event.description, Image.path,Event.date,User.username,User.idUser ,COUNT(Image.idEvent)
 FROM Event
 LEFT OUTER JOIN User ON Event.idUser = User.idUser
 LEFT OUTER JOIN Image ON Event.idEvent = Image.idEvent
-WHERE public=1 AND ( name LIKE ".$pattern." OR local LIKE ".$pattern.") " );
+WHERE public=1 AND ( name LIKE ".$pattern." OR local LIKE ".$pattern.") GROUP BY
+    Image.idEvent" );
     $found=$stmt->execute();
     $result = $stmt->fetchAll();
   }catch(PDOException $e){
