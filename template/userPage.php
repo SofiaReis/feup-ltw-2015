@@ -39,7 +39,7 @@ if(!empty($invitedEvents)){
 				$event = getEventInfo($invitedEvents[$i]['idEvent']);
 				
 					echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
-				  <a href="./?pagina=editEvent&id='.$event['idEvent'].'"><i class="fa fa-pencil"></i></a><br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
+				 <br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
 				
 		}
 	}

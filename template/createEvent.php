@@ -22,12 +22,6 @@ if (!(isset($_SESSION['user_id']))){
 
 <section class="" >
 
-
-
-	<div>
-		<h2> Cria aqui o teu evento! </h2>
-
-	</div>
 	<br>
 	<div>
 		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form" class="event-form">
@@ -75,9 +69,9 @@ if (!(isset($_SESSION['user_id']))){
 	<label>
 		<span>Image 1 :</span>
 		<div class="fileUpload btn btn-primary" name="image">
-			<input id="file" type="file" class="fileUpload" name="file[]"/>
+			<input id="file" type="file" class="fileUpload button" name="file[]"/>
 		</div>
-		<button type="button" id="add_image_input">
+		<button class="button" type="button" id="add_image_input">
 			<i class="fa fa-plus"> Add image</i>
 		</button>
 	</label>
@@ -92,7 +86,7 @@ if (!(isset($_SESSION['user_id']))){
 		    </label>
 		  </div>
 		  <br/><br/>
-			<input type="submit" value="Submit" onClick="return validateCreate();">
+			<input id="create_submit" type="submit" value="Submit" class="button" onClick="return validateCreate();">
 		</form>
 	</div>
 </section><!-- services End -->

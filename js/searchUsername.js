@@ -23,7 +23,7 @@ $(document).ready(function(){
         } else {
           var parsedData = JSON.parse(returnData);
           if (parsedData.length > 0){
-            $('#resultsUsername').html('<p style="padding:5px;">Results:</p>');
+            $('#resultsUsername').html('<span style="padding:5px;">Results:</span>');
             for(var i=0;i<parsedData.length;i++){
               var newLine="".concat('<li><button type="button" class="results-usernames-btn" id="',parsedData[i][1],'" >',parsedData[i][1],'</button></li>');
               $('#resultsUsername').append(newLine);

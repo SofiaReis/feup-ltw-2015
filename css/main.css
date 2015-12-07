@@ -472,17 +472,16 @@ a.btn_red {color: #FFF;}
 .event-form {
     margin-left:auto;
     margin-right:auto;
-    max-width: 500px;
+    max-width: 700px;
     background: #F7F7F7;
-    padding: 25px 15px 25px 10px;
-    font: 12px Georgia, "Times New Roman", Times, serif;
+    padding: 15px 15px 15px 10px;
     color: #888;
-    text-shadow: 1px 1px 1px #FFF;
+    
     border:1px solid #E4E4E4;
 }
 .event-form h1 {
     font-size: 25px;
-    padding: 0px 0px 10px 40px;
+    padding: 20px 0px 20px 40px;
     display: block;
     border-bottom:1px solid #E4E4E4;
     margin: -10px -15px 30px -10px;;
@@ -500,7 +499,7 @@ a.btn_red {color: #FFF;}
     font-size: 20px;
     padding: 0px 0px 10px 40px;
     display: block;
-    border-bottom:1px solid #E4E4E4;
+    
     margin: -10px -15px 30px -10px;;
     color: #888;
 }
@@ -529,10 +528,9 @@ a.btn_red {color: #FFF;}
     border: 1px solid #DADADA;
     color: #888;
     height: 30px;
-    margin-bottom: 16px;
+    margin-bottom: 50px;
     margin-right: 6px;
     margin-top: 2px;
-    outline: 0 none;
     padding: 3px 3px 3px 5px;
     width: 70%;
     font-size: 12px;
@@ -596,7 +594,7 @@ a.btn_red {color: #FFF;}
 .onoffswitch-inner:before {
     content: "Public";
     padding-left: 11px;
-    background-color: #34A7C1; color: #FFFFFF;
+    background-color: rgba(233,236,229,0.9); color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "Private";
@@ -872,8 +870,25 @@ input[type="submit"] {
 	color: rgba(179,194,191,0.9);
 }
 
+ #event_title_edit_btn, #event_name_done_btn_dynamic,
+ #event_description_edit_btn, #event_description_done_btn_dynamic,
+ #event_local_edit_btn, #event_local_done_btn_dynamic,
+ #event_date_edit_btn, #event_date_done_btn_dynamic,
+ #event_type_edit_btn, #event_type_done_btn_dynamic,
+ #event_dstate_edit_btn{
+	float:right;
+	margin-right: 10px;
+}
 
 
+#save_button{
+	float:right;
+}
+
+#add_image_input
+{
+	float: right;
+}
 
 
 
