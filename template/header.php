@@ -1,5 +1,8 @@
+
+
   <!DOCTYPE html>
   <html>
+
 
   <head>
     <link rel="shortcut icon" href="./img/logogoat-fi.ico" type="image/x-icon">
@@ -43,6 +46,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+    <?php
+    error_reporting(0);
+    ?>
     <?
     session_start ();
     if (isset($_SESSION['errors'])){
@@ -65,7 +71,7 @@
           <nav>
 
 
-            <?php 
+            <?php
 
             if(isset($_SESSION['username'])){ ?>
             <ul class="main_nav">
