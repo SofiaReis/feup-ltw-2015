@@ -3,82 +3,91 @@
 <section class="billboard-body-userpage">
 
 
-<h1 id="userpageTitle"><span><i class="fa fa-calendar-check-o"></i> Attending Events </span></h1>
-<div id="userEvents">
+	<h1 id="userpageTitle"><span><i class="fa fa-calendar-check-o"></i> Attending Events </span></h1>
+	<div id="userEvents">
 
-<?php
-	
+		<?php
 
-if(!empty($eventsGo)){
-		for($i=0; $i < count($eventsGo); ++$i)
-		{
+
+		if(!empty($eventsGo)){
+			for($i=0; $i < count($eventsGo); ++$i)
+			{
 				$event = getEventInfo($eventsGo[$i]['idEvent']);
-				
-					echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'<br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
-		}
-	}
-	else{
+				if($event['public'] == 0) {
+				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'&nbsp;&nbsp;<i id="secretfa"class="fa fa-user-secret"></i><br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
+				}else{
 
-	echo 'No events to attend.';
-	}
-		
-?>
-
-</div>
-
-<br>
-
-<h1 id="userpageTitle"><span><i class="fa fa-calendar-plus-o"></i></i> Invited Events </span></h1>
-
-<div id="userEvents">
-
-<?php
-if(!empty($invitedEvents)){
-		for($i=0; $i < count($invitedEvents); ++$i)
-		{
-				$event = getEventInfo($invitedEvents[$i]['idEvent']);
-				
-					echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
-				 <br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
-				
-		}
-	}
-	else{
-
-				echo 'You don\'t have invites for other events.';
+						echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'<br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
 				}
+
+			}
+		}
+		else{
+
+			echo 'No events to attend.';
+		}
 		
-?>
+		?>
 
-</div>
+	</div>
+
+	<br>
+
+	<h1 id="userpageTitle"><span><i class="fa fa-calendar-plus-o"></i></i> Invited Events </span></h1>
+
+	<div id="userEvents">
+
+		<?php
+		if(!empty($invitedEvents)){
+			for($i=0; $i < count($invitedEvents); ++$i)
+			{
+				$event = getEventInfo($invitedEvents[$i]['idEvent']);
+				if($event['public'] == 0) {
+						echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
+				&nbsp;&nbsp;<i id="secretfa"class="fa fa-user-secret"></i><br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
+
+				}else{
+				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
+				<br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
+				}
+			}
+		}
+		else{
+
+			echo 'You don\'t have invites for other events.';
+		}
+		
+		?>
+
+	</div>
 
 
 
-<br>
+	<br>
 
-<h1 id="userpageTitle"><span><i class="fa fa-calendar"></i></i> My Events </span></h1>
+	<h1 id="userpageTitle"><span><i class="fa fa-calendar"></i></i> My Events </span></h1>
 
-<div id="userEvents">
+	<div id="userEvents">
 
-<?php
-if(!empty($userEvents)){
-		for($i=0; $i < count($userEvents); ++$i)
-		{
+		<?php
+		if(!empty($userEvents)){
+			for($i=0; $i < count($userEvents); ++$i)
+			{
 				$event = getEventInfo($userEvents[$i]['idEvent']);
 				//if(empty($event)){
-					echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
-				  <a href="./?pagina=editEvent&id='.$event['idEvent'].'"><i class="fa fa-pencil"></i></a><br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
+				echo '<a href="./?pagina=showEvent&id='.$event['idEvent'].'""><span><b>'.$event['name'].'</b></span></a> - '.$event['description'].'
+				<a href="./?pagina=editEvent&id='.$event['idEvent'].'"><i class="fa fa-pencil"></i></a><br><span>Date:&nbsp;'.$event['date'].'</span>&nbsp;'.$event['local'].'<br><br>';
 				
+			}
 		}
-	}
-else{
+		else{
 
-					echo '<a href="./?pagina=createEvent">You don\'t have any event yet. Please, create one now.</a>';
-				}
+			echo '<a href="./?pagina=createEvent">You don\'t have any event yet. Please, create one now.</a>';
+		}
 		
-?>
+		?>
 
-</div>
+	</div>
 
 
 </section>
