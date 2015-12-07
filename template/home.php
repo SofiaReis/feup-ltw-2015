@@ -208,8 +208,8 @@
 								<div class="info">
 									<? echo $events[$i]['description']; ?><hr><? echo $events[$i]['local']; ?><br><?
 									$idT = $events[$i]['idType'];
-									$type=getEventType($idT);
-									echo $type['name'];
+									$type=getEventType($events[$i]['idEvent']);
+									echo $type=getEventType($events[$i]['idEvent']);
 									?></div>
 									<img src='<?php echo $image['path'];?>' height="180" width="320">
 									<figcaption><p>+</p></figcaption>

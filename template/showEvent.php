@@ -75,14 +75,19 @@ header('Location: ./');
 		<h2>Description:</h2>
 		<p><? echo $event["description"]; ?></p> <br>
 		<br>
-		<h2>Tipo:</h2>
+		<h2>Type:</h2>
+		<? $type=getEventType($_GET['id']); ?>
+		
+		<p><? echo $type; ?></p> <br>
+		<br>
+		<h2>Privacy:</h2>
 		<?
 		$boll_pub = $event["public"];
 		if ($boll_pub) {
-			?><p> <?echo "Público";?> </p>
+			?><p> <?echo "Public";?> </p>
 			<?
 		} else {
-			?> <p> <?echo "Privado";?> </p>
+			?> <p> <?echo "Private";?> </p>
 			<?} ?>
 			<br><br>
 			<h2>Local:</h2>
@@ -91,34 +96,34 @@ header('Location: ./');
 			<h2>Imagens:</h2>
 			<br><br>
 		</div>
-
+		
 		<div class="picture_event">
 			<? foreach($imgPaths as $img){ ?>
 			<div style="float:left;"><img src='<?php echo $img['path'];?>'></div>
 			<? } ?>
 		</div>
-
+		
 		<div class="show_attendants">
 			<button type="button" class="button" id="showAtt">Show attendants</button>
 			<div class="attendancies" id="attendancies" style="display:none;">
 				<ul>
-
+					
 					<? foreach ($attendants as $atten){ ?>
 					<li><label><? echo $atten['username']; ?> is going </label></li>
-					<?	} ?>
-
+					<?      } ?>
+					
 					<label>
 					</ul>
 				</div>
 			</div>
-
+			
 			<div class="goingornot">
 				<? if (isset($_SESSION['user_id'])){ ?>
 				<form action="./php/action_attend.php" method="post" enctype="multipart/form-data" class="event-form">
 					<? if ($isAttendant){ ?>
 					<input type="hidden" value="<? echo $_GET['id'];  ?>" name="remove">
 					<input type="submit" name="submit" class="button" value="Not going" />
-
+					
 					<? } else {?>
 					<input type="hidden" value="<? echo $_GET['id'];  ?>" name="add">
 					<input type="submit" name="submit" class="button" value="Attend" />
@@ -126,12 +131,12 @@ header('Location: ./');
 				</form>
 				<? } ?>
 			</div>
-
+			
 			<br>
 			<? if ($isAttendant || $authorUsername ==$_SESSION['username']){ ?>
 			<div>
 				<form id="comment" action="./php/action_add_comment.php?idEvent=<?php echo $_GET['id'];?>&idUser=<?php echo $_SESSION['user_id'];?>&date=<?php echo date("Y-m-d h:i:sa");?>" method="post" class="STYLE-NAME">
-
+					
 					<label>
 						<span>@<?php echo $_SESSION['username'];?></span>
 						<textarea id="message" name="message" placeholder="You can comment here."></textarea>
@@ -144,7 +149,7 @@ header('Location: ./');
 				</label>
 			</form>
 		</div>
-
+		
 		<div class="info_event comments" > <?php
 		for($i=0; $i < count($comments); ++$i)
 		{
@@ -152,11 +157,11 @@ header('Location: ./');
 			echo '<h2>'.$user['firstname'].' '.$user['lastname'].' ('.$comments[$i]['date'].')<br><span>@'.$user['username'].'</span><br></h2>
 			<p>'.$comments[$i]['description'].'</p>';
 		}
-
+		
 		?>  </div>
-
+		
 		<? } ?>
-
+		
 		<div class="delete_event">
 			<? if ($_SESSION['user_id']==$author['idUser']){  ?>
 			<form action="./php/action_remove_event.php" method="post" enctype="multipart/form-data" class="event-form">
@@ -167,6 +172,6 @@ header('Location: ./');
 			</form>
 			<? } ?>
 		</div>
-
-
+		
+		
 	</div>

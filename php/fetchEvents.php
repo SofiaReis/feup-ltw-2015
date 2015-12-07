@@ -94,5 +94,6 @@ function getImg($idI){
   }
 }
 
+
 $events=getAllPublicEvents();
 ?>

@@ -133,7 +133,7 @@ if ( !(isset($_SESSION['user_id'])) || ($authorUsername !== $_SESSION['username'
     </button>
   -->
     <? } ?>
-    <br/>
+    <br>
     <div id="inviteNew">
       Invite (please input username):
       <input type="text" id="inv_input"/>

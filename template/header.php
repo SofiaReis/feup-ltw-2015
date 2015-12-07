@@ -1,8 +1,5 @@
-
-
   <!DOCTYPE html>
   <html>
-
 
   <head>
     <link rel="shortcut icon" href="./img/logogoat-fi.ico" type="image/x-icon">
@@ -71,7 +68,7 @@
           <nav>
 
 
-            <?php
+            <?php 
 
             if(isset($_SESSION['username'])){ ?>
             <ul class="main_nav">
