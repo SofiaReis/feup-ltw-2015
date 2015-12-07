@@ -159,6 +159,7 @@ for($i=0;$i<$nFiles;$i++){
 		            confirmButtonText: \"OK\"
 		      });
 		        </script>";
+						deleteEvent($lastID);
 				header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 
@@ -187,6 +188,7 @@ for($i=0;$i<$nFiles;$i++){
 								confirmButtonText: \"OK\"
 					});
 						</script>";
+						deleteEvent($lastID);
 				header('Location: ' . $_SERVER['HTTP_REFERER']);
 				return false;
 			}

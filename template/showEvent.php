@@ -128,7 +128,7 @@ header('Location: ./');
 			</div>
 
 			<br>
-			<? if ($isAttendant){ ?>
+			<? if ($isAttendant || $authorUsername ==$_SESSION['username']){ ?>
 			<div>
 				<form id="comment" action="./php/action_add_comment.php?idEvent=<?php echo $_GET['id'];?>&idUser=<?php echo $_SESSION['user_id'];?>&date=<?php echo date("Y-m-d h:i:sa");?>" method="post" class="STYLE-NAME">
 

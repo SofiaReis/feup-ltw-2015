@@ -256,6 +256,27 @@ function addAttendancie($iduser,$idEvent){
   }
 }
 
+
+function deleteEvent($id){
+  try{
+    global $db;
+    $stmt=$db->prepare("DELETE FROM Event WHERE idEvent =  :id");
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+    $query = $stmt->execute();
+    return $query;
+  }
+  catch(PDOException $e){
+    if(isset($_SESSION['user_id'])){
+			$log=$e->getMessage()." ___Date=".date("Y-m-d")." ___ idUser=".$_SESSION['user_id'].PHP_EOL;
+		}else{
+			$log=$e->getMessage()." ___Date= ".date("Y-m-d")."\n";
+		}
+		error_log($log,3,"../error.log");
+        return -1;
+  }
+}
+
+
 function inviteUser($iduser,$idEvent){
   try{
     global $db;
