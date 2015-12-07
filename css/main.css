@@ -82,7 +82,6 @@
 	padding-right: 250px;
 	padding-bottom: 50px;
 	padding-top: 50px;
-	background: url('../img/pattern.jpg') center fixed;
 
 	background-size: cover;
     -webkit-background-size: cover;
@@ -297,11 +296,13 @@
 
 /*  Footer  */
 footer{
-	width: 100%;
-	padding: 30px 0;
-	background-color: rgba(179,194,191,0.9);
-	text-align: center;
-	height: 100%
+	position: absolute;
+    width: 100%;
+    padding: 30px 0;
+    background-color: rgba(179,194,191,0.9);
+    text-align: center;
+    height: auto;
+    bottom: 0;
 }
 
 footer nav{
@@ -312,7 +313,7 @@ footer nav{
 footer nav ul li{
 	list-style: none;
 	display: inline-block;
-	margin: 20px 0 20px 0;
+	margin: 2px 0 20px 0;
 }
 
 footer nav ul li a{
