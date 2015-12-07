@@ -67,7 +67,7 @@
 .billboard-body{
 	width: 100%;
 	height: 600px;
-	background: url('../img/fundo2.jpg') center fixed;
+	background: url('../img/fundo4.jpg') center fixed;
   background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -870,6 +870,147 @@ input[type="submit"] {
 #userEvents a:hover{
 
 	color: rgba(179,194,191,0.9);
+}
+
+/* Show Event */
+
+.title_event {
+	position: relative;
+	height: 130px;
+	background-color: #b2c2bf;
+}
+
+.event-show {
+	text-shadow: none;
+	font-family: 'Source Sans Pro', sans-serif;
+    max-width: 1000px;
+}
+
+.event-show h1 {
+	margin: 0;
+	font-size: 50px;
+	padding-top: 10px;
+    padding: none;
+    display: block; 
+    border-bottom: none;
+    margin: none;
+    color: #3d3a35;
+}
+
+.event-show	p {
+	padding-left: 40px;
+	font-size: 20px;
+}
+
+.date#show {
+	width: 100px;
+	height: 100%;
+	display: table;
+	overflow: hidden;
+}
+
+.date_wrapper {
+display: table-cell;
+vertical-align: middle;
+}
+
+.date_wrapper #dayy {
+	color: #b2c2bf;
+	font-size: 30px;
+}
+
+.date_wrapper #monthh {
+	color: #3d3a35;
+	font-size: 30px;
+}
+
+.info_event {
+	padding-top: 20px;
+}
+
+.info_event h2 {
+	margin-bottom: 10px;
+}
+
+.info_event p {
+	padding-top: 0;
+}
+
+.picture_event {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+
+.picture_event div {
+	margin-bottom: 10px;
+	position: relative;
+	width: 49%;
+    height: 250px;
+}
+
+.picture_event div img {
+	position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.fb-share {
+	padding-top: 3px;
+	padding-right: 105px;
+	float: right;
+}
+
+.show_attendants {
+	text-align:center;
+}
+
+.show_attendants .attendancies {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.show_attendants ul {
+	list-style-type: none;
+}
+
+.goingornot {
+	text-align:center;
+	border: none;
+}
+
+.goingornot form{
+	border: none;
+}
+
+.comments h2{
+	padding-bottom: 0px;
+    padding-top: 40px;
+}
+
+.comments p{
+	padding-bottom: 20px;
+}
+
+.delete_event {
+	text-align:center;
+}
+
+.delete_event form {
+	border: none;
+}
+
+.desc li {
+	padding-bottom: 70px;
+}
+
+.desc i {
+	padding-bottom: 30px;
 }
 
 
