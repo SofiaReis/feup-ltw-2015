@@ -20,17 +20,10 @@ if (!(isset($_SESSION['user_id']))){
 
 
 
-<section class="" >
-
-
+<section>
 
 	<div>
-		<h2> Cria aqui o teu evento! </h2>
-
-	</div>
-	<br>
-	<div>
-		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form" class="event-form">
+		<form action="php/action_create_event.php" method="post" enctype="multipart/form-data" name="create_event_form" class="event-form event_create">
 			<label>
 				<span>Title :</span>
 				<input type="text" name="title" id="title"><br>
@@ -92,7 +85,7 @@ if (!(isset($_SESSION['user_id']))){
 		    </label>
 		  </div>
 		  <br/><br/>
-			<input type="submit" value="Submit" onClick="return validateCreate();">
+			<input type="submit" value="Submit" class="button" onClick="return validateCreate();">
 		</form>
 	</div>
 </section><!-- services End -->
